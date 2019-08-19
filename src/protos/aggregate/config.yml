@@ -1,0 +1,13 @@
+---
+name: aggregate
+version: 2
+tags:
+  - trade
+namespace: CoreTx
+description: Aggregate the info of each tx onto relevant states
+type_urls:
+  fg:t:aggregate: ForgeAbi.AggregateTx
+proto: aggregate.proto
+pipeline: protocol.yml
+sources:
+  - protocol.ex

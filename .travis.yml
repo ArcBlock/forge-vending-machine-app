@@ -1,0 +1,37 @@
+language: elixir
+dist: xenial
+elixir: 1.8.1
+otp_release: 21.2.4
+branches:
+  only:
+  - master
+install:
+- mix local.hex --force
+- mix local.rebar --force
+before_script: make travis-init
+script: make travis
+before_deploy: make travis-deploy
+deploy:
+  - provider: releases
+    skip_cleanup: true
+    tag_name: "$(git describe --tags --exact-match)"
+    api_key:
+      secure: qkQyIIIuTqGGXEdDdIVwFFzSjdFDGPMxEnQt7tdkZAnfdabKD1SgB12P1cAR5n9RYoWhnnrFq8AaAk8N988stS8ODDMOk4mRfpr1g+3JLCPwZTXZNJt4mk65hBEUVsEaAtk0s2XB0YBLjKXH8/X/8+3e3nfyn3POvLlxa10iJb5jI74qMPHfOB7L7c7+30cRFk/NRR85v33vn8J3s0zPaASYe7v+UFsbyzL14etrwmuHjHwcDgfg7Id4DiAcIqYnY4bPI4dTazlTVD44/q3pddnNkXTzEF5ReoiMxpe2GdH+S2MNbW1uQARIraqqRQuxhLmdiv/WuSKtZlxRA5WPTH/gmXBD8wgQp+F/SnjRFiLYq9kslh3g4lEvdLtjafI8w9SPcOxOymfQkN6W9VajHNTJGLO6E8XNa6Pr+NEmfeikSVCL+NixCohPH3hRKwbmJamr7tg9I4h9KShRdHWQ2oqtA57aWcY4nF52VUCqdA52aiuD2anXG06GMX2/WfrYboLNFFmaVjDIXrX5HnTHP68L/3xiIQax4EfHANr4CFFp8QaH0lw0uwJD8FY2yDJRxshtotKzJs/xP+td25GAFYgb5VgbAs9tkDUkIYPcdUuM5EzWCicLeJPJDF6RFBHaB6Xszoqe0xXdJZEWTanTyfapCmygvSiaob/8raoRLfE=
+    file_glob: true
+    file: forge-compiler
+    overwrite: true
+    on:
+      repo: ArcBlock/forge-tx
+      branch: master
+  - provider: s3
+    skip_cleanup: true
+    access_key_id: AKIAJYXT4M4SX54ER66Q
+    secret_access_key:
+      secure: XHQU2VYWd7OfEn7QLDCVgXocx3gnjUKcURNd9MV7FotPEbc4ThT0s12YciY/oY/gk5Cs+nLs0LZBoey4yJqG2vBOIdLRyxzJamIwK1Au+fQYyIcunEucqOE2rsL/Gqs73DKSNfK8/I7p4Qz5byd7K2i4m9ZZfNvuyM5WMtxvKnEVI4U1EAmyTfQSgSYG3KILkCu6VT0/6GD+fUFycvwfDucgbNMiB57mtG2GtgRXOXNj+9EN2xfKUTNUJgA22wdX/R6X6ue5tXRn8feAFdWSaIZ0Sno2IgH6KYo6edfm7TaIn5Cii35wPMvKC9m4gZSEUyTpJBmDtcsOyMIaVXkpraMymD8mYr7cPUsUGbusqeNJ6TbvkX9Jv13aAdeIxwF9BNwa0hDIBxPCiB8kzq6q765nRL0dQFeps9S5P7RYWLwIdxOPoo2vKnWLWoKYPzPhSprm+beufTjKT0/KFIcnv/+pToYuHqQT/Wui/lj3hCwUFKHDmy0DHqzXAx9UrkYSzGeaWZb+wx+2QwkBjs/D2xWUkUi40tBCZKVwtEwl5Tyvd7OlrFQ2aGP1/eSScAVJkVUyr5yqtngg/haXSuQgwhYF/aKv9iSJSNiAu/zxRIeqCl9kiccK9WMi2A29ADZX6ufQoFFurY2acSYeCPxWuDXR6LR3QSzg2RwrOxNbA9s=
+    bucket: releases.arcblock.io
+    local-dir: _build/s3
+    upload-dir: forge-compiler
+    region: us-west-2
+env:
+  matrix:
+  - MIX_ENV=test

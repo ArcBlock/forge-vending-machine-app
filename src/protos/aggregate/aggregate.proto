@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+import "google/protobuf/timestamp.proto";
+import "type.proto";
+
+message AggregateTx {
+  string sku = 1;  // stock keeping unit
+  forge_abi.BigUint value = 2;
+  google.protobuf.Timestamp time = 3;
+  string operator = 4;  // who runs vending machine business
+  string manufacturer = 5;  // who produces vending machine
+  string supplier = 6;  // who supplies for vending machine
+  string location = 7;  // who provides locations for vending machine
+
+  // forge won't touch this field. Only forge app shall handle it.
+  google.protobuf.Any data = 15;
+}
