@@ -1,13 +1,20 @@
 import os
-import yaml
-
 from random import randrange
 
-
+import yaml
 from conf import fixture_path
 
-def sku_generator(num):
-    assert(isinstance(num, int))
+
+def sku_generator(num: int):
+    '''
+    Generate a list of dict on sku's info (name and value), and save as yaml
+    ------
+    Args:
+        num(int): the number of sku wanted to generate
+
+    Output:
+        create `fixtures/sku.yml`
+    '''
 
     data = []
 
@@ -15,11 +22,11 @@ def sku_generator(num):
         # e.g. name = 'sku001'
         name = "sku" + str(i + 1).zfill(3)
         # e.g. value = a random number
-        value = randrange(1, 6) # generate random int from 1 to 5
+        value = randrange(1, 6)  # generate random int from 1 to 5
 
         sku_data = dict(
-            sku = name,
-            value = value,
+            sku=name,
+            value=value,
         )
 
         data.append(sku_data)

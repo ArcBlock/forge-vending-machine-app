@@ -1,17 +1,17 @@
 ---
-- address: z1YWQmp61jQpMWjYN7wxCUae5PuMLH3CvkZ
+- address: z1bqpcbRKCYKrz26K3JQw8TetdVpXupbSgd
   moniker: vending_machine001
-  pk: 2LAlmqK2KJHgfjOHdGWsSFrY3Oz3qYSo85NcZ4H3uW8
-  sk: TDFnBw4snM26HUJfHu2Mgh-piit7I5NhVPHAjvuxnBLYsCWaorYokeB-M4d0ZaxIWtjc7PephKjzk1xngfe5bw
-- address: z1iMBBDLsendAQnY8Jwt6v4G17YDvSdKCr8
+  pk: 3Li5hzOBdXLxPOROPEE9GGl2beXGV1qQ_L4tnLHFfZo
+  sk: xmytLq3taDaCcErjdDUm81lYth8kaSPvC5s1k5qbFYfcuLmHM4F1cvE85E48QT0YaXZt5cZXWpD8vi2cscV9mg
+- address: z1oT17Z7YnDffD2WYJUYkzP5HBKYyZFg5J6
   moniker: vending_machine002
-  pk: 43bt03UQclEx5IwgKwIfoh9TSWvzITyHz-jmjj_cxds
-  sk: 08usH7GTs2KlvyZiQGg1JELOHnAyfJLBzM5sSfwca9Hjdu3TdRByUTHkjCArAh-iH1NJa_MhPIfP6OaOP9zF2w
-- address: z1bsJwczSQUQ6Dvhx6413sY9kcXfrpyykrH
+  pk: JhLFTOiCyBx6ndqNpliPLTudZqhPhxT-MDli3NVb_CQ
+  sk: rHUaGQProAlewl5IUD5T1Wxu0tcq6BUm3uOL4-oNAcwmEsVM6ILIHHqd2o2mWI8tO51mqE-HFP4wOWLc1Vv8JA
+- address: z1Ti3vUr2mCxPQhiDdDP4DHv4V15igoBD9U
   moniker: vending_machine003
-  pk: uFU2cDKiVVht4Z3JXaAXopefqHQ_Uogx1iEeUR1okzQ
-  sk: YWoI5qhm6atrF7uxq0cK6bRFmTN5VaE97UoGLfM03JC4VTZwMqJVWG3hncldoBeil5-odD9SiDHWIR5RHWiTNA
-- address: z1TgxBbtjXzyyEzF4Koei5FWVMG5wp9ENKX
+  pk: GPLX6Ke6TMXdJVqzd5uFWGvEyoMHq6hCuOV9AUI_kUk
+  sk: 1A2hbl78x1ON_lGzhk4Sl7jUqRap2JIOXggSUBmAxykY8tfop7pMxd0lWrN3m4VYa8TKgwerqEK45X0BQj-RSQ
+- address: z1WnB4aGrpsQtYuzm6ZCEhBftD6s2VoBX6Z
   moniker: vending_machine004
-  pk: kWHfSZtNDKxdRt-ayWlqLgJAuDCWYt_eHDlSIy6Vx2c
-  sk: 5q0A-nmxQ-I07J4xkXkLU1_AnTrV7smWTP2LCXxpTzKRYd9Jm00MrF1G35rJaWouAkC4MJZi394cOVIjLpXHZw
+  pk: Me3lnyzXzkNLqy5mL59rd1ey_hSHP-XEgsx-ZfR2bM0
+  sk: GO5AW-YOZ3GW92faQ4L-5ckKFn9U3EJh5vamO3LOFW8x7eWfLNfOQ0urLmYvn2t3V7L-FIc_5cSCzH5l9HZszQ
