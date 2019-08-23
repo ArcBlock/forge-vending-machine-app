@@ -1,6 +1,5 @@
 import logging
 import sys
-sys.path.append('./src')
 
 import dash
 import dash_core_components as dcc
@@ -11,7 +10,7 @@ from dash.dependencies import Output
 from dash.dependencies import State
 from helpers import get_parties_states
 from helpers import PARTY_TYPES
-
+sys.path.append('./src')
 
 
 # set up logger
