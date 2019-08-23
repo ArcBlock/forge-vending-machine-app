@@ -1,20 +1,19 @@
+from time import sleep
+
 from forge_sdk import ForgeConn
-from forge_sdk import protos, utils
+from forge_sdk import protos
+from forge_sdk import utils
 from google.protobuf.timestamp_pb2 import Timestamp
 from protos.aggregate_pb2 import AggregateTx
-from time import sleep
-import logging
 
-logger = logging.getLogger("test")
 
 # connect to a forge port
-
 f = ForgeConn('127.0.0.1:27210')
 rpc = f.rpc
 config = f.config
 # print(config.file)
 
-logger.info("creating values...")
+print("creating values...")
 
 # create wallets for relevant parties
 vm = rpc.create_wallet(moniker='vending_machine', passphrase='vm1234')
@@ -32,7 +31,7 @@ print("location's wallet: ", lo)
 # create other necessary info
 sku = "pepsi"
 value = utils.int_to_biguint(utils.to_unit(2))
-logger.debug("value is %s", value)
+print("value is %s", value)
 
 
 # check account balance
@@ -42,16 +41,17 @@ time.GetCurrentTime()
 print("time is %s", time)
 
 print(f"operator's balance is {rpc.get_account_balance(op.wallet.address)}")
-print(f"manufacturer's balance is {rpc.get_account_balance(ma.wallet.address)}")
+print(
+    f"manufacturer's balance is {rpc.get_account_balance(ma.wallet.address)}")
 print(f"supplier's balance is {rpc.get_account_balance(su.wallet.address)}")
 print(f"location's balance is {rpc.get_account_balance(lo.wallet.address)}")
 
 
-logger.info("sending a tx...")
-    
+print("sending a tx...")
+
 # send a tx
-itx = AggregateTx(sku=sku, value=value, time=time, operator=op.wallet.address, \
-    manufacturer=ma.wallet.address, supplier=su.wallet.address, location=lo.wallet.address)
+itx = AggregateTx(sku=sku, value=value, time=time, operator=op.wallet.address,
+                  manufacturer=ma.wallet.address, supplier=su.wallet.address, location=lo.wallet.address)
 itx2 = utils.encode_to_any(type_url="fg:t:aggregate", data=itx)
 print("itx2 is ", itx2)
 res = rpc.send_itx(tx=itx2, wallet=vm.wallet, token=vm.token, nonce=0)
@@ -60,9 +60,10 @@ print("res is ", res)
 
 # check tx
 sleep(3)
-logger.info(f"TX verify: {rpc.is_tx_ok(res.hash)}")
+print(f"TX verify: {rpc.is_tx_ok(res.hash)}")
 
 print(f"operator's balance is {rpc.get_account_balance(op.wallet.address)}")
-print(f"manufacturer's balance is {rpc.get_account_balance(ma.wallet.address)}")
+print(
+    f"manufacturer's balance is {rpc.get_account_balance(ma.wallet.address)}")
 print(f"supplier's balance is {rpc.get_account_balance(su.wallet.address)}")
 print(f"location's balance is {rpc.get_account_balance(lo.wallet.address)}")

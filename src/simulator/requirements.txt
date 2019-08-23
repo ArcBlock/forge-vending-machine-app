@@ -1,3 +1,0 @@
-forge-python-sdk==0.35.0
-PyYAML==5.1.2
-requests==2.18.4

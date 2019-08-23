@@ -1,9 +1,14 @@
 TOP_DIR=.
+SRC_DIR=$(TOP_DIR)/src
 VERSION=$(strip $(shell cat version))
 VENV=vending-machine
 
-PROTOS=$(TOP_DIR)/src/protos/aggregate
-SIMULATOR_APP=$(TOP_DIR)/src/simulator
+PROTOS=$(SRC_DIR)/protos/aggregate
+PROTO_BUILD_DIR=_build
+
+SIMULATOR_APP=$(SRC_DIR)/simulator
+WEB_APP=$(SRC_DIR)/webapp
+
 PROTO_OUTPUT=$(SIMULATOR_APP)/protos
 VENDOR_PROTOS=$(SIMULATOR_APP)/_vendors/lib/protobuf/
 
@@ -45,12 +50,21 @@ post-build:
 
 build: build-proto
 	@echo "Building the software..."
-	
+
 build-proto:
 	@(git clone https://github.com/arcblock/forge_abi $(SIMULATOR_APP)/_vendors --depth 1) || true
+	@cd $(SIMULATOR_APP)/_vendors && make prepare-vendor-proto;
 	@protoc -I=$(PROTOS) -I=$(VENDOR_PROTOS) -I=$(SIMULATOR_APP)/_vendors/vendors --python_out=$(PROTO_OUTPUT) $(PROTOS)/aggregate.proto
 	@sed 's/type_pb2/forge_sdk.protos.protos.type_pb2/g' $(PROTO_OUTPUT)/aggregate_pb2.py > $(PROTO_OUTPUT)/aggregate.py
 	@mv $(PROTO_OUTPUT)/aggregate.py $(PROTO_OUTPUT)/aggregate_pb2.py
+
+build-tx-proto:
+	@forge-compiler $(PROTOS)/config.yml $(PROTO_BUILD_DIR)
+	@make get-tx-proto
+
+get-tx-proto:
+	@echo "Generated deployable itx:\n"
+	@jq -r '.aggregate' _build/aggregate/aggregate.itx.json
 
 format:
 	@echo "Format code..."
@@ -64,6 +78,9 @@ test:
 
 run-sim:
 	@python3 $(SIMULATOR_APP)/aggregate_simulator.py
+
+run-web:
+	@python3 $(WEB_APP)/index.py
 
 include .makefiles/*.mk
 

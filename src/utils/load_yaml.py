@@ -1,6 +1,7 @@
 import yaml
 
-from conf import fixture_path
+from .conf import fixture_path
+
 
 def load_yaml(name):
     with open("{}/{}.yml".format(fixture_path, name), 'r') as file:
