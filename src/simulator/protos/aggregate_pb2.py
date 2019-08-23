@@ -20,10 +20,10 @@ import forge_sdk.protos.protos.type_pb2 as type__pb2
 
 DESCRIPTOR = _descriptor.FileDescriptor(
   name='aggregate.proto',
-  package='',
+  package='forge_abi',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x0f\x61ggregate.proto\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\ntype.proto\"\xd7\x01\n\x0b\x41ggregateTx\x12\x0b\n\x03sku\x18\x01 \x01(\t\x12!\n\x05value\x18\x02 \x01(\x0b\x32\x12.forge_abi.BigUint\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08operator\x18\x04 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x05 \x01(\t\x12\x10\n\x08supplier\x18\x06 \x01(\t\x12\x10\n\x08location\x18\x07 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x0f \x01(\x0b\x32\x14.google.protobuf.Anyb\x06proto3')
+  serialized_pb=_b('\n\x0f\x61ggregate.proto\x12\tforge_abi\x1a\x19google/protobuf/any.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\ntype.proto\"\xd7\x01\n\x0b\x41ggregateTx\x12\x0b\n\x03sku\x18\x01 \x01(\t\x12!\n\x05value\x18\x02 \x01(\x0b\x32\x12.forge_abi.BigUint\x12(\n\x04time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x10\n\x08operator\x18\x04 \x01(\t\x12\x14\n\x0cmanufacturer\x18\x05 \x01(\t\x12\x10\n\x08supplier\x18\x06 \x01(\t\x12\x10\n\x08location\x18\x07 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x0f \x01(\x0b\x32\x14.google.protobuf.Anyb\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,type__pb2.DESCRIPTOR,])
 
@@ -32,62 +32,62 @@ DESCRIPTOR = _descriptor.FileDescriptor(
 
 _AGGREGATETX = _descriptor.Descriptor(
   name='AggregateTx',
-  full_name='AggregateTx',
+  full_name='forge_abi.AggregateTx',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='sku', full_name='AggregateTx.sku', index=0,
+      name='sku', full_name='forge_abi.AggregateTx.sku', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='value', full_name='AggregateTx.value', index=1,
+      name='value', full_name='forge_abi.AggregateTx.value', index=1,
       number=2, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='time', full_name='AggregateTx.time', index=2,
+      name='time', full_name='forge_abi.AggregateTx.time', index=2,
       number=3, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='operator', full_name='AggregateTx.operator', index=3,
+      name='operator', full_name='forge_abi.AggregateTx.operator', index=3,
       number=4, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='manufacturer', full_name='AggregateTx.manufacturer', index=4,
+      name='manufacturer', full_name='forge_abi.AggregateTx.manufacturer', index=4,
       number=5, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='supplier', full_name='AggregateTx.supplier', index=5,
+      name='supplier', full_name='forge_abi.AggregateTx.supplier', index=5,
       number=6, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='location', full_name='AggregateTx.location', index=6,
+      name='location', full_name='forge_abi.AggregateTx.location', index=6,
       number=7, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='data', full_name='AggregateTx.data', index=7,
+      name='data', full_name='forge_abi.AggregateTx.data', index=7,
       number=15, type=11, cpp_type=10, label=1,
       has_default_value=False, default_value=None,
       message_type=None, enum_type=None, containing_type=None,
@@ -105,8 +105,8 @@ _AGGREGATETX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=92,
-  serialized_end=307,
+  serialized_start=103,
+  serialized_end=318,
 )
 
 _AGGREGATETX.fields_by_name['value'].message_type = type__pb2._BIGUINT
@@ -118,7 +118,7 @@ _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 AggregateTx = _reflection.GeneratedProtocolMessageType('AggregateTx', (_message.Message,), dict(
   DESCRIPTOR = _AGGREGATETX,
   __module__ = 'aggregate_pb2'
-  # @@protoc_insertion_point(class_scope:AggregateTx)
+  # @@protoc_insertion_point(class_scope:forge_abi.AggregateTx)
   ))
 _sym_db.RegisterMessage(AggregateTx)
 

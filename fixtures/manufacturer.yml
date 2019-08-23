@@ -1,41 +1,41 @@
 ---
-- address: z1c4LV4BnhBqhuSVVn85NNdvW5VsS5TumfW
+- address: z1XDhP3hXi6bKqe1EfxWkLmNTgELbP1upBR
   moniker: manufacturer001
-  pk: RcjHsnDdvNsgw9Z8aornU6GzX1LdPYbfU-f2Zw53VbA
-  sk: WTa2LPYcy9MX1TmbAR5BsdhwUAkpp5euGOCaaiabPHJFyMeycN282yDD1nxqiudTobNfUt09ht9T5_ZnDndVsA
-- address: z1Yy2XKgEsZWpoLXB9stN392VAmiQJW2FWL
+  pk: MzJTHp4h7DAt6HDaTgzvVhJ9UknQ2L5FevF08JUuacg
+  sk: pwRDqV6gFwwlHfTV0LSvr7rwmtksebvr5yaikMjUN_gzMlMeniHsMC3ocNpODO9WEn1SSdDYvkV68XTwlS5pyA
+- address: z1YnFggDMsxzmtjYUX7ZW3bBjcNjbQmVYtd
   moniker: manufacturer002
-  pk: NXVQVegjlOKwNs0UYOfftPYYbm-EhhZTPLjd9I0UDDA
-  sk: QzVRYJqKkgGIBz0esRW3jdJMQ45g5r9LkjkUr9eLvEk1dVBV6COU4rA2zRRg59-09hhub4SGFlM8uN30jRQMMA
-- address: z1m2BVv6v5KZiEP6hbzRwYcuds72QyLkoJ1
+  pk: y-4uAvggFO2eDHegFcmlNIy9qDKdI3UiDfiYUHXImlU
+  sk: KahVe8QuTAry4TlSsMeQIU5v2fsHPqmEViyVliZwH3PL7i4C-CAU7Z4Md6AVyaU0jL2oMp0jdSIN-JhQdciaVQ
+- address: z1braMCpVgyAzLjLij9qpNc9TuLBFe9tmRd
   moniker: manufacturer003
-  pk: Wluy2jlZtl3hruVptOhfrXy0yyoTwPHrn9IHQ-cEL1U
-  sk: msltmFs8JwYUuGAwA_htHX9Xct_WwDTtLqBdSHHuvT9aW7LaOVm2XeGu5Wm06F-tfLTLKhPA8euf0gdD5wQvVQ
-- address: z1mGXDbqoKS6PYgi1tehB5uQaFaad9hpDzd
+  pk: bJVXMFRkj5TD9gWkCdAI2JC2q7T-rMiZfuVnB_BL7EA
+  sk: lrvqBLxIAx_eBEqk9fGVDwOr70rZAg3RocL1uEnD9XNslVcwVGSPlMP2BaQJ0AjYkLartP6syJl-5WcH8EvsQA
+- address: z1hG1zetj4DxoXBNYGbBa8F3BZhGb8MepyN
   moniker: manufacturer004
-  pk: 0ccmQ5Av8rOkgFu1Oxl7xVIdFzMedC7NYoBtC1C-erA
-  sk: v7k4YaIn0GsWLGZlVinQew9HVr846ELQVbOevoXDpaDRxyZDkC_ys6SAW7U7GXvFUh0XMx50Ls1igG0LUL56sA
-- address: z1iB8k7Ct4cmG5ihoZB9mvECEHj3beDS2J8
+  pk: RjMzhGjDl7pNEuOTV6PQQK4bCMGcuPIY671rLXx9K88
+  sk: TLkErOUkJKRpQ9TFuCz1kkktoF4wX8DSleKJfGyHu4BGMzOEaMOXuk0S45NXo9BArhsIwZy48hjrvWstfH0rzw
+- address: z1h47y3yWmpw8sB7P9TdopxrYmDWWY6rM34
   moniker: manufacturer005
-  pk: grs_PF3RpmcX0Tve15MG_aqd-0ZCh1YulB4nLdr0_6c
-  sk: wgihy-a6_jqsatfAyfsvLB-jmlxwbo19N0ykPnc2D6KCuz88XdGmZxfRO97Xkwb9qp37RkKHVi6UHict2vT_pw
-- address: z1c8fomLgMERt2LLWSro2G137zFVr7i1WTZ
+  pk: qo-B6U64kmSQL6V6ZjzJ2pHJOJvN-giJdGdPnVhWI9g
+  sk: RH0Sf05CRku9o0AqG9TdyX6Z2AhrOTvcrBnE-PyJXYGqj4HpTriSZJAvpXpmPMnakck4m836CIl0Z0-dWFYj2A
+- address: z1X7XWHXbEcNomdid4Pqm33dUB628au5bWG
   moniker: manufacturer006
-  pk: G1sEAFE1DdRERQaB8b0hG_JzGUAvzgTO7k9ETbjrv-M
-  sk: hu1nvatYRhFVKi2-EPwmn1o-h9U7n9fxhVbtmCHLrOkbWwQAUTUN1ERFBoHxvSEb8nMZQC_OBM7uT0RNuOu_4w
-- address: z1Yov7JCr56ERhtrWToJwxW23usViokwG9d
+  pk: dnodm-50S8v9DSXDbFeCscOGdsG_IZeb7lTzYiG85KA
+  sk: j756sg5eAlMbfnOfhc-6FAaf9IjlNc5hSWqhV4KJuIh2eh2b7nRLy_0NJcNsV4Kxw4Z2wb8hl5vuVPNiIbzkoA
+- address: z1WFBdDAsTvU9HbTsTBddQncYoQUm4F2Mor
   moniker: manufacturer007
-  pk: kQhua2B3O3L19cUkU9MjGhEiPhV22zNvAjnQtWNrqq4
-  sk: yxY1hjKYuUSXAkzxfhQ6dHqTHd9gPauCKRtz2ERJrWORCG5rYHc7cvX1xSRT0yMaESI-FXbbM28COdC1Y2uqrg
-- address: z1nMY2awokhFqzZPibMGtQFyGcYt9NeyvUp
+  pk: muZ7ju-DTlhCuPuzkyGFGn5Rcs7pRC9-v1PdZrfXBac
+  sk: NkUeN0CZQxH_nwILWtXxra7uKhqj75UNK7mvcSyhmIWa5nuO74NOWEK4-7OTIYUaflFyzulEL36_U91mt9cFpw
+- address: z1TstA1WhDUQ3XCxWr3xzfaMYbceZEaoYyR
   moniker: manufacturer008
-  pk: 9Ou5nG8fcwQ71gvuIzvVATArKhRv1HZqpdMkssruS7U
-  sk: QlRl8s1vJZ3EbGQaNIJlK389S9wfe4Z_AG0IT90qvDT067mcbx9zBDvWC-4jO9UBMCsqFG_Udmql0ySyyu5LtQ
-- address: z1XRx55E5NhcVVayZomUbUqFSRETXHBC7SB
+  pk: kR55UcdqFFPFk0M35zfW11xX0oKTmeBtV8_gUo-MSYQ
+  sk: wFH5sUgy7RdjBS5ZiNsctVaBBW8iAyCIEv7TVGa2ot6RHnlRx2oUU8WTQzfnN9bXXFfSgpOZ4G1Xz-BSj4xJhA
+- address: z1iZvUDf4msuYmF7SmhWoLYr5MYwRGoA54Q
   moniker: manufacturer009
-  pk: L0RPcC4czrA7GXPs3ycptCS_X_bKYstwrATIZGvFKj8
-  sk: EPa4eBhR261Jjz--GsGrgwwkjwM38gRRMLKGZ1JrDjsvRE9wLhzOsDsZc-zfJym0JL9f9spiy3CsBMhka8UqPw
-- address: z1fVZcXnLnMMVDsLYd656KJw8dfLnv3BdtK
+  pk: UOK-jHh46KYWf3rdx3W6vi4DXvj8R74t4WyF0uvmfqo
+  sk: HcQotv8W7T0UB4X7JqDGyZSOupUnSpOZHhndHLK1YiNQ4r6MeHjophZ_et3Hdbq-LgNe-PxHvi3hbIXS6-Z-qg
+- address: z1TV2iP84ay2xKpAzwdcV8QMWnUCNsg9HwH
   moniker: manufacturer010
-  pk: __tSM_w3p5xKmVOLvo7q5q_8RlpGHnuEziNKy_N_svM
-  sk: VzAIlUPUG8S3VnpTnsqCYx2VioxmiSQGWPgeYvtQV7X_-1Iz_DennEqZU4u-jurmr_xGWkYee4TOI0rL83-y8w
+  pk: 6siYu6uTW7D5J5YmUEClLceFi25q58jXM7Smx3YhLb4
+  sk: n-_ZZrq-U5TnbETfOPU9ki_G3IQAnsxLUy7LYQ-Ce8PqyJi7q5NbsPknliZQQKUtx4WLbmrnyNcztKbHdiEtvg

@@ -3,19 +3,22 @@ import logging
 import os
 import signal
 import sys
+sys.path.append('./src')
 import time
 from random import choice
 from random import randrange
 
-from forge_connect import config
-from forge_connect import rpc
 from forge_sdk import protos
 from forge_sdk import utils
 from google.protobuf.timestamp_pb2 import Timestamp
-from load_yaml import load_yaml
 from protos.aggregate_pb2 import AggregateTx
 from sku_gen import sku_generator
+from utils import wallets
+from utils.chain import config
+from utils.chain import rpc
 from wallet_gen import wallet_generator
+
+
 
 # set up logger
 logging.basicConfig(level=logging.INFO)
@@ -150,25 +153,15 @@ async def main(batch):
     if declare_wallets == "yes":
         logger.info("first-time simulate, declaring wallets...")
         prepare(10)
-
-    # load items
-    items = load_yaml("sku")
-
-    # load wallets
-    vending_machines = load_yaml("vending_machine")
-    operators = load_yaml("operator")
-    manufacturers = load_yaml("manufacturer")
-    suppliers = load_yaml("supplier")
-    locations = load_yaml("location")
-
-    await asyncio.gather(*(simulate(dict(items=items,
-                                         vending_machines=vending_machines,
-                                         operators=operators,
-                                         manufacturers=manufacturers,
-                                         suppliers=suppliers,
-                                         locations=locations,
-                                         batch=n,
-                                         )) for n in range(batch)))
+    else:
+        await asyncio.gather(*(simulate(dict(items=wallets.items,
+                                             vending_machines=wallets.vending_machines,
+                                             operators=wallets.operators,
+                                             manufacturers=wallets.manufacturers,
+                                             suppliers=wallets.suppliers,
+                                             locations=wallets.locations,
+                                             batch=n,
+                                             )) for n in range(batch)))
     # await send()
 
 

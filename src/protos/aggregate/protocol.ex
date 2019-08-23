@@ -20,7 +20,7 @@ defmodule CoreTx.Aggregate do
       case (itx_seconds < block_seconds or itx_seconds - block_seconds <= @thirty_seconds) and block_seconds - itx_seconds <= @seconds_per_hour do
         true -> info
         _ -> put_status(info, :invalid_time)
-      end 
+      end
     end
   end
 
@@ -46,9 +46,15 @@ defmodule CoreTx.Aggregate do
 
     defp update_one_state(%{itx: itx, db_handler: handler, context: context} = info, path) do
       state = get(info, path)
-      new_state = CoreState.Account.update(state, %{balance: state.balance + itx.value}, context)
+      data = get_data(state.data)
+      new_data = %{data | "num_txs" => data["num_txs"] + 1, "balance" => data["balance"] + to_int(itx.value)}
+        |> ForgeSdk.encode_any!("fg:x:json")
+      new_state = CoreState.Account.update(state, %{data: new_data}, context)
       :ok = handler.put!(new_state.address, new_state)
       :ok
-    end 
+    end
+
+    defp get_data(nil), do: %{"balance" => 0, "num_txs" => 0}
+    defp get_data(data), do: data |> ForgeSdk.decode_any!()
   end
 end

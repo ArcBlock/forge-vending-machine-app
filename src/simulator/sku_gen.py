@@ -1,8 +1,10 @@
 import os
+import sys
 from random import randrange
 
 import yaml
-from conf import fixture_path
+from utils.conf import fixture_path
+sys.path.append('./src')
 
 
 def sku_generator(num: int):

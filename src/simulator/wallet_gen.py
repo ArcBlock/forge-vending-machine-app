@@ -1,9 +1,11 @@
 import os
+import sys
 
 import yaml
-from conf import fixture_path
-from forge_connect import rpc
 from forge_sdk import utils
+from utils.chain import rpc
+from utils.conf import fixture_path
+sys.path.append('./src')
 
 
 def create_wallet_dict(moniker: str, passphrase: str) -> dict:
