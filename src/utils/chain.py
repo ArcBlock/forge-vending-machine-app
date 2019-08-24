@@ -22,6 +22,18 @@ config = f.config
 
 
 def get_account_states(addresses: list):
+    '''
+    Get the states of given addresses, 
+    which is used for checking parties' wallets only
+    ------
+    Args:
+        addresses(list): a list of addresses needed to check their states 
+
+    Output:
+        states(list): a list of states of the given addresses, 
+            where each state is a dict with a party's wallet info (balance, num_txs, address, and moniker)
+    '''
+
     states = []
     for addr in addresses:
         state = rpc.get_single_account_state(addr)
@@ -36,14 +48,33 @@ def get_account_states(addresses: list):
 
 
 def get_wallet_moniker(address: str):
+    '''
+    Get the moniker of the given address
+    ------
+    Args:
+        address(str): wallet's address
+
+    Output:
+        (str): wallet's moniker 
+    '''
+
     return rpc.get_single_account_state(address).moniker
 
 
 def get_current_txs_info(db_height: int):
     '''
-    1. get current block height
-    2. grab every [:ok & aggregate] tx info in dict from every block from last height to current height
+    Get all aggregate transaction info from the height of which db already has a record to the current height of the chain,
+    for db update only
+    ------
+    Args:
+        db_height(int): the height of which db has a record
+
+    Output:
+        res(list): list of dicts which contains the info of each aggregate tx, including the info of sku (name, price, purchase time)
+            and the info of vm and parties (names and addresses)
+        db_height(int): new db height, which is the current height of the chain
     '''
+
     block_height = rpc.get_chain_info().info.block_height
     logger.debug(block_height)
 
@@ -94,7 +125,3 @@ def get_current_txs_info(db_height: int):
                     res.append(info)
 
     return res, block_height
-
-# res, db_height = get_current_txs_info(0)
-# print("res is \n", res)
-# print("db_height is ", db_height)

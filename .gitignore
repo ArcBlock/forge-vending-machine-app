@@ -21,3 +21,4 @@ _vendors
 src/protos/_output
 _build
 package-lock.json
+src/webapp/db/vending_machine.sqlite

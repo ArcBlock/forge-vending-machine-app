@@ -9,7 +9,7 @@ from dash.dependencies import Input
 from dash.dependencies import Output
 from dash.dependencies import State
 from helpers import get_parties_states
-from helpers import PARTY_TYPES
+from helpers import PARTY_TYPES, PARTY_LIST
 sys.path.append('./src')
 
 
@@ -22,7 +22,7 @@ app = dash.Dash(__name__)
 css_url = 'https://codepen.io/chriddyp/pen/bWLwgP.css'
 app.css.append_css({"external_url": css_url})
 
-df_account_states = pd.DataFrame(get_parties_states())
+df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
 logger.debug(f"\n {df_account_states}")
 
 df_txs = pd.DataFrame
@@ -116,7 +116,7 @@ def update_output(value, n):
         return 'Please choose the ledger you want to check'
 
     logger.info("updating df...")
-    df_account_states = pd.DataFrame(get_parties_states())
+    df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
     output = df_account_states[df_account_states['moniker'] == value]
     return html.Div(
         children=(

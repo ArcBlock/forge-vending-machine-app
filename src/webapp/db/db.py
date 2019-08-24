@@ -17,6 +17,10 @@ sqlite_file = 'src/webapp/db/vending_machine.sqlite'
 
 
 def sql_connection():
+    '''
+    Connect to database 
+    '''
+
     try:
         return sqlite3.connect(sqlite_file)
     except Error:
@@ -24,6 +28,10 @@ def sql_connection():
 
 
 def sql_table(c, conn):
+    '''
+    Create table called [tran
+    '''
+
     c.execute("""CREATE TABLE IF NOT EXISTS transactions(
         hash text PRIMARY KEY,
         vending_machine text,
@@ -43,12 +51,21 @@ def sql_table(c, conn):
 
 
 def sql_insert(c, conn, entities):
+    '''
+    Insert data into the table
+    '''
+
     c.execute(
         'INSERT OR IGNORE INTO transactions VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', entities)
     conn.commit()
 
 
 def main():
+    '''
+    Main function,
+    update the database periodically (every 10s)
+    '''
+    
     conn = sql_connection()
     c = conn.cursor()
 
