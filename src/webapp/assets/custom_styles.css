@@ -10,6 +10,12 @@ body {
     margin: 3%;
 }
 
+.app-content {
+    /* background-color: #ffffff; */
+    padding:20px;
+}
+
+
 .banner {
     height: fit-content;
     /* background-color: rgb(241, 252, 252); */
@@ -40,6 +46,23 @@ body {
     line-height: 1;
     text-align: center; 
   }
+
+
+.custom-tabs-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-tabs {
+    border-radius: 10px;
+}
+
+.custom-tab {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 
   .pretty_container {
     background-color: #f9f9f9;

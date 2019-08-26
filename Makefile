@@ -6,6 +6,7 @@ VENV=vending-machine
 PROTOS=$(SRC_DIR)/protos/aggregate
 PROTO_BUILD_DIR=_build
 
+DB = $(SRC_DIR)/webapp/db
 SIMULATOR_APP=$(SRC_DIR)/simulator
 WEB_APP=$(SRC_DIR)/webapp
 
@@ -76,11 +77,17 @@ dep:
 test:
 	@echo "Running test suites..."
 
+prepare:
+	@python3 $(SIMULATOR_APP)/prepare_simulation.py
+
+run-db: 
+	@python3 $(DB)/db.py
+
 run-sim:
 	@python3 $(SIMULATOR_APP)/aggregate_simulator.py
 
 run-web:
-	@python3 $(WEB_APP)/index.py
+	@python3 $(WEB_APP)/app.py
 
 include .makefiles/*.mk
 

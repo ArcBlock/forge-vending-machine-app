@@ -1,41 +1,21 @@
 ---
-- address: z1XDhP3hXi6bKqe1EfxWkLmNTgELbP1upBR
+- address: z1fanKrVSWmF1iEUoHDUqTp5yNqMV38ydwd
   moniker: manufacturer001
-  pk: MzJTHp4h7DAt6HDaTgzvVhJ9UknQ2L5FevF08JUuacg
-  sk: pwRDqV6gFwwlHfTV0LSvr7rwmtksebvr5yaikMjUN_gzMlMeniHsMC3ocNpODO9WEn1SSdDYvkV68XTwlS5pyA
-- address: z1YnFggDMsxzmtjYUX7ZW3bBjcNjbQmVYtd
+  pk: XyRqoRhWrxBGJ0wTyQjKtmBZU5XcMrmwD1OtZi4uqps
+  sk: 9cObT0I1oWqZj1st8_2KNcn4l2IUrUvD1o28J0t81FRfJGqhGFavEEYnTBPJCMq2YFlTldwyubAPU61mLi6qmw
+- address: z1inx3ygSTuh6GrSzk28wDAaAQ5PRk87wrR
   moniker: manufacturer002
-  pk: y-4uAvggFO2eDHegFcmlNIy9qDKdI3UiDfiYUHXImlU
-  sk: KahVe8QuTAry4TlSsMeQIU5v2fsHPqmEViyVliZwH3PL7i4C-CAU7Z4Md6AVyaU0jL2oMp0jdSIN-JhQdciaVQ
-- address: z1braMCpVgyAzLjLij9qpNc9TuLBFe9tmRd
+  pk: CSF5jtX6ulBXqB5Jcu1tGBYNo1Q_-Ja4zA2WPIjsH5Q
+  sk: DlfgHrR5si3AOaoNjPOh7YMrHUJmm1QlKz6hm9PvK3AJIXmO1fq6UFeoHkly7W0YFg2jVD_4lrjMDZY8iOwflA
+- address: z1Scv4jug2SfjsnLxamBbCFNrHcc5T1qhiX
   moniker: manufacturer003
-  pk: bJVXMFRkj5TD9gWkCdAI2JC2q7T-rMiZfuVnB_BL7EA
-  sk: lrvqBLxIAx_eBEqk9fGVDwOr70rZAg3RocL1uEnD9XNslVcwVGSPlMP2BaQJ0AjYkLartP6syJl-5WcH8EvsQA
-- address: z1hG1zetj4DxoXBNYGbBa8F3BZhGb8MepyN
+  pk: AjFw51JD7qGdAdm5xTIXZZFT_1dw5rnqWDEWBfDUA2M
+  sk: 5dpdfbG6h5JY8UyKSVWzM70r2hGJ2mXAG_ZvgtyHwHQCMXDnUkPuoZ0B2bnFMhdlkVP_V3DmuepYMRYF8NQDYw
+- address: z1jRZ69Am6JaHdeHSF7Vd4C1iM4vmHtawYZ
   moniker: manufacturer004
-  pk: RjMzhGjDl7pNEuOTV6PQQK4bCMGcuPIY671rLXx9K88
-  sk: TLkErOUkJKRpQ9TFuCz1kkktoF4wX8DSleKJfGyHu4BGMzOEaMOXuk0S45NXo9BArhsIwZy48hjrvWstfH0rzw
-- address: z1h47y3yWmpw8sB7P9TdopxrYmDWWY6rM34
+  pk: Hu1c3DzZama--pxyY-T98IKT4IIZXgg7eAL9Ad2xZvo
+  sk: INYXjUha58jT9-IRQRLK4hQ3Z0nniaixZpInTZ5tt4oe7VzcPNlqZr76nHJj5P3wgpPgghleCDt4Av0B3bFm-g
+- address: z1VhPHiaDLsYZr5taeD4txh4d9dhr2rERcu
   moniker: manufacturer005
-  pk: qo-B6U64kmSQL6V6ZjzJ2pHJOJvN-giJdGdPnVhWI9g
-  sk: RH0Sf05CRku9o0AqG9TdyX6Z2AhrOTvcrBnE-PyJXYGqj4HpTriSZJAvpXpmPMnakck4m836CIl0Z0-dWFYj2A
-- address: z1X7XWHXbEcNomdid4Pqm33dUB628au5bWG
-  moniker: manufacturer006
-  pk: dnodm-50S8v9DSXDbFeCscOGdsG_IZeb7lTzYiG85KA
-  sk: j756sg5eAlMbfnOfhc-6FAaf9IjlNc5hSWqhV4KJuIh2eh2b7nRLy_0NJcNsV4Kxw4Z2wb8hl5vuVPNiIbzkoA
-- address: z1WFBdDAsTvU9HbTsTBddQncYoQUm4F2Mor
-  moniker: manufacturer007
-  pk: muZ7ju-DTlhCuPuzkyGFGn5Rcs7pRC9-v1PdZrfXBac
-  sk: NkUeN0CZQxH_nwILWtXxra7uKhqj75UNK7mvcSyhmIWa5nuO74NOWEK4-7OTIYUaflFyzulEL36_U91mt9cFpw
-- address: z1TstA1WhDUQ3XCxWr3xzfaMYbceZEaoYyR
-  moniker: manufacturer008
-  pk: kR55UcdqFFPFk0M35zfW11xX0oKTmeBtV8_gUo-MSYQ
-  sk: wFH5sUgy7RdjBS5ZiNsctVaBBW8iAyCIEv7TVGa2ot6RHnlRx2oUU8WTQzfnN9bXXFfSgpOZ4G1Xz-BSj4xJhA
-- address: z1iZvUDf4msuYmF7SmhWoLYr5MYwRGoA54Q
-  moniker: manufacturer009
-  pk: UOK-jHh46KYWf3rdx3W6vi4DXvj8R74t4WyF0uvmfqo
-  sk: HcQotv8W7T0UB4X7JqDGyZSOupUnSpOZHhndHLK1YiNQ4r6MeHjophZ_et3Hdbq-LgNe-PxHvi3hbIXS6-Z-qg
-- address: z1TV2iP84ay2xKpAzwdcV8QMWnUCNsg9HwH
-  moniker: manufacturer010
-  pk: 6siYu6uTW7D5J5YmUEClLceFi25q58jXM7Smx3YhLb4
-  sk: n-_ZZrq-U5TnbETfOPU9ki_G3IQAnsxLUy7LYQ-Ce8PqyJi7q5NbsPknliZQQKUtx4WLbmrnyNcztKbHdiEtvg
+  pk: Bfw1k9I2FErh8CdhLjn9tO8HLMQCSbJHSH9i_Q3ZJMs
+  sk: 7i-OqRHpQG363Op_sWVzjA6j-XUVpihnusyh6MOaXk0F_DWT0jYUSuHwJ2EuOf207wcsxAJJskdIf2L9Ddkkyw

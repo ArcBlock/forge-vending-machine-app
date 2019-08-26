@@ -1,21 +1,31 @@
 ---
 - sku: sku001
-  value: 5
+  value: 4
 - sku: sku002
   value: 1
 - sku: sku003
-  value: 2
+  value: 5
 - sku: sku004
-  value: 5
+  value: 4
 - sku: sku005
-  value: 3
-- sku: sku006
-  value: 2
-- sku: sku007
   value: 1
-- sku: sku008
+- sku: sku006
   value: 5
+- sku: sku007
+  value: 5
+- sku: sku008
+  value: 1
 - sku: sku009
   value: 1
 - sku: sku010
-  value: 1
+  value: 2
+- sku: sku011
+  value: 5
+- sku: sku012
+  value: 2
+- sku: sku013
+  value: 2
+- sku: sku014
+  value: 5
+- sku: sku015
+  value: 4

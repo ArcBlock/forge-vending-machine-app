@@ -22,6 +22,9 @@ logger = logging.getLogger("app")
 
 app = dash.Dash(__name__)
 
+# allow dynamic callbacks
+app.config['suppress_callback_exceptions'] = True
+
 # add external css
 # css_url = 'https://codepen.io/chriddyp/pen/bWLwgP.css'
 # app.css.append_css({"external_url": [css_url]})
@@ -54,6 +57,62 @@ def build_banner():
     )
 
 
+def create_tab2():
+    return html.Div(
+        id="tab-2-content",
+        className="row",
+        children=[
+            html.Div(
+                className="col-xl-4",
+                children=[
+                    html.Div(
+                        id="selector",
+                        className="pretty_container",
+                        children=[
+                            html.P("Filter by party:", className="control_label"),
+                            dcc.RadioItems(
+                                id="party_selector",
+                                options=[
+                                    {"label": "All ", "value": "all"},
+                                    {"label": "Operators", "value": "operator"},
+                                    {"label": "Manufacturers ",
+                                        "value": "manufacturer"},
+                                    {"label": "Suppliers ", "value": "supplier"},
+                                    {"label": "Locations ", "value": "location"},
+                                ],
+                                value="operator",
+                                labelStyle={
+                                    'display': 'inline-block',
+                                    'margin': '2px',
+                                },
+                            ),
+                            dcc.Dropdown(
+                                id="party_options",
+                                options=party_options,
+                                multi=False,
+                                value='',
+                            ),
+                        ]
+                    )                               
+                ],
+            ),
+            html.Div(
+                
+                className="col-xl-8",
+                children=[
+                    html.Div(
+                        id="main-content",
+                        className="pretty_container",
+                        children=[
+                            html.Div(id='selector_output')
+                        ]
+                    )   
+                ]
+            )  
+        ]
+    )
+
+
 # Layout
 app.layout = html.Div(
     id="big-app-container",
@@ -69,72 +128,55 @@ app.layout = html.Div(
             id="app-container",
             className="container-fluid",
             children=[
-                # Main app
-                html.Div(
-                    id="app-content",
-                    className="row",
+                dcc.Tabs(
+                    id="tabs", 
+                    parent_className='custom-tabs',
+                    className="custom-tabs-container",
+                    value='tab-2', 
                     children=[
-                        html.Div(
-                            className="col-xl-4",
-                            children=[
-                                html.Div(
-                                    id="selector",
-                                    className="pretty_container",
-                                    children=[
-                                        html.P("Filter by party:", className="control_label"),
-                                        dcc.RadioItems(
-                                            id="party_selector",
-                                            options=[
-                                                {"label": "All ", "value": "all"},
-                                                {"label": "Operators", "value": "operator"},
-                                                {"label": "Manufacturers ",
-                                                    "value": "manufacturer"},
-                                                {"label": "Suppliers ", "value": "supplier"},
-                                                {"label": "Locations ", "value": "location"},
-                                            ],
-                                            value="operator",
-                                            labelStyle={
-                                                'display': 'inline-block',
-                                                'margin': '2px',
-                                            },
-                                        ),
-                                        dcc.Dropdown(
-                                            id="party_options",
-                                            options=party_options,
-                                            multi=False,
-                                            value='',
-                                        ),
-                                    ]
-                                )                               
-                            ],
+                        dcc.Tab(
+                            label='1', 
+                            value='tab-1', 
+                            className='custom-tab',
+                            selected_className='custom-tab--selected'
                         ),
-                        html.Div(
-                            
-                            className="col-xl-8",
-                            children=[
-                                html.Div(
-                                    id="main-content",
-                                    className="pretty_container",
-                                    children=[
-                                        html.Div(id='selector_output')
-                                    ]
-                                )   
-                            ]
-                        )  
-                    ]
+                        dcc.Tab(
+                            label='2', 
+                            value='tab-2',
+                            className='custom-tab',
+                            selected_className='custom-tab--selected'
+                        ),
+                    ],
+                    colors={
+                        "border": "white",
+                        "primary": "#4E6AF6",
+                        "background": "#c4ccf5",
+                    } 
                 ),
-            ],
-        ),
-    ],
+                html.Div(id='app-content', className='app-content')
+            ]
+        )
+    ]
 )
 
+
 # Create callback
+
+@app.callback(Output('app-content', 'children'),
+              [Input('tabs', 'value')])
+def render_content(tab):
+    if tab == 'tab-1':
+        return html.Div([
+            html.H3('Tab content 1')
+        ])
+    elif tab == 'tab-2':
+        return create_tab2()
 
 # Radio -> dropdown options
 @app.callback(Output("party_options", "options"), [Input("party_selector", "value")])
 def display_type(selector):
     if selector == "all":
-        return party_options
+        return party_options 
     return [party for party in party_options if selector in party['value']]
 
 
@@ -144,7 +186,8 @@ def display_type(selector):
     [Input('party_options', 'value'),
      Input('interval-component', 'n_intervals')])
 def update_output(value, n):
-    if value == "":
+    logger.info(f"option's value is {value}")
+    if value == "" or value == None:
         return 'Please choose the ledger you want to check'
 
     logger.info("updating df...")
