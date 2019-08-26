@@ -16,7 +16,7 @@ logger = logging.getLogger("db")
 sqlite_file = 'src/webapp/db/vending_machine.sqlite'
 
 
-def sql_connection():
+def sql_connection(sqlite_file: str):
     '''
     Connect to database 
     '''
@@ -29,7 +29,7 @@ def sql_connection():
 
 def sql_table(c, conn):
     '''
-    Create table called [tran
+    Create table called transactions
     '''
 
     c.execute("""CREATE TABLE IF NOT EXISTS transactions(
@@ -65,8 +65,8 @@ def main():
     Main function,
     update the database periodically (every 10s)
     '''
-    
-    conn = sql_connection()
+
+    conn = sql_connection(sqlite_file)
     c = conn.cursor()
 
     sql_table(c, conn)

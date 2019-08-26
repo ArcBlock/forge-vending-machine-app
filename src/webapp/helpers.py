@@ -1,10 +1,16 @@
+import pandas as pd
 import time
 import sys
 sys.path.append('./src')
 
+from db.db import sqlite_file, sql_connection
 from utils.chain import get_account_states
 from utils.wallets import vending_machines, operators, manufacturers, suppliers, locations
 
+
+'''
+The following functions are grabbing the data on the chain
+'''
 
 # get a list of dicts of parties' wallet info (address, pk, sk, and moniker)
 PARTY_LIST = [operators, manufacturers, suppliers, locations]
@@ -53,7 +59,7 @@ def party_types(lst: list):
     Output:
         type(dict): a dict where key and value are wallet monikers
     '''
-    
+
     types = {}
     for party in get_parties_states(lst):
         moniker = party['moniker']
@@ -62,3 +68,27 @@ def party_types(lst: list):
 
 
 PARTY_TYPES = party_types(PARTY_LIST)
+
+'''
+The following functions are grabbing the data from the db
+'''
+
+def query_rows(column, value):
+    '''
+    Query all rows in the table by a certain column,
+    turn the result into DataFrame
+    ------
+    Args: 
+        column(str): the name of the column to query
+        value(str): query by this value
+
+    Output:
+        query_result(df)
+    '''
+    conn = sql_connection(sqlite_file)
+    return pd.read_sql_query('SELECT * FROM transactions WHERE {} = (?)'.format(column), conn, params=(value,))
+
+# res = query_rows('operator', 'operator002')
+# print(res.shape)
+# for i in res:
+#     print(i)

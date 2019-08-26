@@ -2,13 +2,16 @@ import logging
 import sys
 
 import dash
+import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
+import dash_table
+import difflib
 import pandas as pd
 from dash.dependencies import Input
 from dash.dependencies import Output
 from dash.dependencies import State
-from helpers import get_parties_states
+from helpers import get_parties_states, query_rows
 from helpers import PARTY_TYPES, PARTY_LIST
 sys.path.append('./src')
 
@@ -19,8 +22,9 @@ logger = logging.getLogger("app")
 
 app = dash.Dash(__name__)
 
-css_url = 'https://codepen.io/chriddyp/pen/bWLwgP.css'
-app.css.append_css({"external_url": css_url})
+# add external css
+# css_url = 'https://codepen.io/chriddyp/pen/bWLwgP.css'
+# app.css.append_css({"external_url": [css_url]})
 
 df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
 logger.debug(f"\n {df_account_states}")
@@ -42,8 +46,8 @@ def build_banner():
             html.Div(
                 id="banner-text",
                 children=[
-                    html.H5("Vending Machine's Trustworthy Ledger"),
-                    html.H6("Bills Reporting And Market Analysis"),
+                    html.H3("Vending Machine's Trustworthy Ledger"),
+                    html.H5("Bills Reporting And Market Analysis"),
                 ],
             ),
         ],
@@ -53,6 +57,7 @@ def build_banner():
 # Layout
 app.layout = html.Div(
     id="big-app-container",
+    className="container-fluid",
     children=[
         build_banner(),
         dcc.Interval(
@@ -62,35 +67,62 @@ app.layout = html.Div(
         ),
         html.Div(
             id="app-container",
+            className="container-fluid",
             children=[
                 # Main app
                 html.Div(
                     id="app-content",
+                    className="row",
                     children=[
-                        html.P("Filter by party:", className="control_label"),
-                        dcc.RadioItems(
-                            id="party_selector",
-                            options=[
-                                {"label": "All ", "value": "all"},
-                                {"label": "Operators", "value": "operator"},
-                                {"label": "Manufacturers ",
-                                    "value": "manufacturer"},
-                                {"label": "Suppliers ", "value": "supplier"},
-                                {"label": "Proprietors ", "value": "location"},
+                        html.Div(
+                            className="col-xl-4",
+                            children=[
+                                html.Div(
+                                    id="selector",
+                                    className="pretty_container",
+                                    children=[
+                                        html.P("Filter by party:", className="control_label"),
+                                        dcc.RadioItems(
+                                            id="party_selector",
+                                            options=[
+                                                {"label": "All ", "value": "all"},
+                                                {"label": "Operators", "value": "operator"},
+                                                {"label": "Manufacturers ",
+                                                    "value": "manufacturer"},
+                                                {"label": "Suppliers ", "value": "supplier"},
+                                                {"label": "Locations ", "value": "location"},
+                                            ],
+                                            value="operator",
+                                            labelStyle={
+                                                'display': 'inline-block',
+                                                'margin': '2px',
+                                            },
+                                        ),
+                                        dcc.Dropdown(
+                                            id="party_options",
+                                            options=party_options,
+                                            multi=False,
+                                            value='',
+                                        ),
+                                    ]
+                                )                               
                             ],
-                            value="operator",
-                            labelStyle={"display": "inline-block"},
-                            className="form-check",
                         ),
-                        dcc.Dropdown(
-                            id="party_options",
-                            options=party_options,
-                            multi=False,
-                            value='',
-                            className="dropdown",
-                        ),
-                        html.Div(id='selector_output')
-                    ]),
+                        html.Div(
+                            
+                            className="col-xl-8",
+                            children=[
+                                html.Div(
+                                    id="main-content",
+                                    className="pretty_container",
+                                    children=[
+                                        html.Div(id='selector_output')
+                                    ]
+                                )   
+                            ]
+                        )  
+                    ]
+                ),
             ],
         ),
     ],
@@ -116,16 +148,52 @@ def update_output(value, n):
         return 'Please choose the ledger you want to check'
 
     logger.info("updating df...")
+
+    # wallet's state info
     df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
     output = df_account_states[df_account_states['moniker'] == value]
-    return html.Div(
-        children=(
-            html.H5(output['moniker']),
-            html.P(f"Address: {output['address'].values[0]}"),
-            html.P(f"Balance: {output['balance'].values[0]}"),
-            html.P(f"Number of TXs: {output['num_txs'].values[0]}"),
-        )
-    )
+
+    # txs info
+    column = difflib.get_close_matches(value, ['operator', 'manufacturer', 'location', 'supplier'])[0]
+    df_txs = query_rows(column, value).sort_values(by=['time'], ascending=False)
+    shown_columns = ['item', 'price', 'time', 'vending_machine', 'hash']
+    table = dash_table.DataTable(
+                data=df_txs.to_dict('records'),
+                columns=[{'id': c, 'name': c} for c in shown_columns],
+                style_table={'overflowX': 'scroll'},
+                style_cell={'textAlign': 'left', 'margin': '10px'},
+                style_as_list_view=True,
+                page_size= 20,
+            )  
+
+    
+    layout = html.Div(
+                children=[
+                    html.Div(
+                        className="row",
+                        children=[
+                            html.Div(
+                                className='col', 
+                                children=[
+                                    html.H4(output['moniker']),
+                                    html.P(f"Address: {output['address'].values[0]}"),
+                                ],
+                            ),
+                            html.Div(
+                                className='col',
+                                children=[
+                                    html.H4(output['balance'].values[0], style={'textAlign': 'right'}),
+                                    html.H5("Balance", style={'textAlign': 'right'})
+                                ]
+                            ),
+                        ]
+                    ),
+                    html.P(f"Number of bills: {output['num_txs'].values[0]}"),
+                    table,
+                ]
+            )
+            
+    return layout
 
 
 if __name__ == '__main__':
