@@ -81,7 +81,7 @@ def main():
             logger.debug(entities)
             sql_insert(c, conn, entities)
         logger.info(f"db_height is {db_height}")
-        sleep(10)
+        sleep(3)
 
 
 

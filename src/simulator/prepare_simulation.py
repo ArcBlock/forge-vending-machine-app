@@ -1,9 +1,10 @@
+import time
 import sys
 sys.path.append('./src')
 
 from relation_builder import build_vending_machine, build_sku
 from sku_gen import sku_generator
-from utils import wallets
+from utils.load_yaml import load_yaml
 from wallet_gen import wallet_generator
 
 def create_wallet(context):
@@ -77,7 +78,15 @@ def main():
 
     # declare wallets and sku
     create_wallet(context)
-    build_relation(wallets.items, wallets.vending_machines, wallets.operators, wallets.manufacturers, wallets.suppliers, wallets.locations)
+
+    items = load_yaml("sku")
+    vending_machines = load_yaml("vending_machine")
+    operators = load_yaml("operator")
+    manufacturers = load_yaml("manufacturer")
+    suppliers = load_yaml("supplier")
+    locations = load_yaml("location")
+
+    build_relation(items, vending_machines, operators, manufacturers, suppliers, locations)
 
 if __name__ == "__main__":
     main()

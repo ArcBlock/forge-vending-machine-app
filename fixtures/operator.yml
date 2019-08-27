@@ -1,13 +1,13 @@
 ---
-- address: z1dcjtyFepEzXm6LajFSrooV8ujQF7a1CpZ
+- address: z1TnjCwLpt4GqmhRJMSPCAHibKTEBV31cXn
   moniker: operator001
-  pk: yupDgJ--_OCeOBPmXdm_eqleNu5RizcmW-hG_LSEOoA
-  sk: fFpyfdGY7ZhrCBBOP_zScDGTAltgK8xkKSpcgDa3JKzK6kOAn7784J44E-Zd2b96qV427lGLNyZb6Eb8tIQ6gA
-- address: z1QjfKbGVCts4Sa84UMuWVPWuM4zXyjDpir
+  pk: aKbUFTWZ1PA9EF3jlChfkEdQuwyqqdSlC5H9gXyUE00
+  sk: ZOAuz9YmIYH76JrbIi0Wohx83Ux8GV8yQbIVtLVcGUZoptQVNZnU8D0QXeOUKF-QR1C7DKqp1KULkf2BfJQTTQ
+- address: z1gPpcuUr9J6ek9D1S6MRJzjPbvJMPKHjf9
   moniker: operator002
-  pk: pzuouLE1mLmwfjf48LZ-Bt5TJ4k8SooYuwpKQ2xvffI
-  sk: 92QSVJjLwDs0fBWw9i8HJSmi4BOlN5AF2tjXXJR_DXSnO6i4sTWYubB-N_jwtn4G3lMniTxKihi7CkpDbG998g
-- address: z1jJPJaUDxPBMRfYdVAN8wAUhMVMzUoPy9r
+  pk: O3iDU8u5Gw9NJDy9UqUATdR1vuDe0OH2s_4kAPyzpSA
+  sk: p0XvNgfHWG6dxRy0wchmMrGHCIyKodcShMvrrvZa6ZQ7eINTy7kbD00kPL1SpQBN1HW-4N7Q4faz_iQA_LOlIA
+- address: z1oYE2SJF54mNsvdQw5TerVkdVJxDZrqDYC
   moniker: operator003
-  pk: pxZDMjXwHiiN3U69Q8qnrhn4A048kSQJ-bOajQFvJVo
-  sk: g9rpgdf5hUi-QiGgTchQgnn_MH668fyQH-WlOORZnXKnFkMyNfAeKI3dTr1DyqeuGfgDTjyRJAn5s5qNAW8lWg
+  pk: KQ_ZJEGdB5M69CzNxMcNMm2QRmvAZCNDAQOAAEIxNLg
+  sk: v44nfa7zXI0Q5Fmdw7lsDaQdQNK_Bjy_8QPRumjMTQkpD9kkQZ0Hkzr0LM3Exw0ybZBGa8BkI0MBA4AAQjE0uA

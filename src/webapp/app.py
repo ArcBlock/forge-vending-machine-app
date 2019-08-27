@@ -4,14 +4,16 @@ import sys
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
+import dash_daq as daq
 import dash_html_components as html
 import dash_table
 import difflib
 import pandas as pd
+import plotly.figure_factory as ff
 from dash.dependencies import Input
 from dash.dependencies import Output
 from dash.dependencies import State
-from helpers import get_parties_states, query_rows
+from helpers import get_parties_states, query_rows, get_value_prop, heatmap_helper
 from helpers import PARTY_TYPES, PARTY_LIST
 sys.path.append('./src')
 
@@ -56,6 +58,55 @@ def build_banner():
         ],
     )
 
+# building components for tab1
+def piechart():
+    return dcc.Graph(
+        id="piechart",
+        figure={
+            "data": [
+                {
+                    "labels": [],
+                    "values": [],
+                    "type": "pie",
+                    "marker": {
+                        "colors": ['rgb(146, 123, 21)',
+                                  'rgb(177, 180, 34)',
+                                  'rgb(206, 206, 40)',
+                                  'rgb(175, 51, 21)',
+                                  'rgb(35, 36, 21)'],
+                        # "line": {"color": "white", "width": 3}
+                    },
+                    "textinfo": "label",
+                }
+            ],
+            "layout": {
+                "margin": dict(l=20, r=20, t=20, b=20),
+                "showlegend": True,
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)",
+                "autosize": True,
+            },
+        },
+    )
+
+def vm_map():
+    y, text, z = heatmap_helper()
+    colorscale = [[0, '#e8dd9b'], [1, 'rgb(79, 129, 102)']]
+    return dcc.Graph(
+        id='vm_map',
+        figure=ff.create_annotated_heatmap(z, y=y, annotation_text=text, colorscale=colorscale)
+    )
+
+def create_tab1():
+    return html.Div(
+        id="tab-1-content",
+        children=[
+            piechart(),
+            vm_map()
+        ]
+    )
+        
+
 
 def create_tab2():
     return html.Div(
@@ -96,8 +147,7 @@ def create_tab2():
                     )                               
                 ],
             ),
-            html.Div(
-                
+            html.Div(               
                 className="col-xl-8",
                 children=[
                     html.Div(
@@ -149,8 +199,8 @@ app.layout = html.Div(
                     ],
                     colors={
                         "border": "white",
-                        "primary": "#4E6AF6",
-                        "background": "#c4ccf5",
+                        "primary": 'rgb(79, 129, 102)', #"#4E6AF6",
+                        "background": '#9fb3a9', #"#c4ccf5",
                     } 
                 ),
                 html.Div(id='app-content', className='app-content')
@@ -162,16 +212,72 @@ app.layout = html.Div(
 
 # Create callback
 
+# Tab
 @app.callback(Output('app-content', 'children'),
               [Input('tabs', 'value')])
 def render_content(tab):
     if tab == 'tab-1':
-        return html.Div([
-            html.H3('Tab content 1')
-        ])
+        return create_tab1()
     elif tab == 'tab-2':
         return create_tab2()
 
+'''
+Tab1 Callback
+'''
+# Piechart -> update
+@app.callback(Output('piechart', 'figure'), [Input('interval-component', 'n_intervals')])
+def update_piechart(n):
+    prop_dict = get_value_prop('operator')
+    return {
+        "data": [{
+            "labels":[*prop_dict],
+            "values": [*prop_dict.values()],
+            "type": "pie",
+            "marker": {
+                "colors": ['rgb(33, 75, 99)',
+                            'rgb(79, 129, 102)',
+                            'rgb(151, 179, 100)',
+                            'rgb(175, 49, 35)',
+                            'rgb(36, 73, 147)'], 
+                #  "line": {"color": "white", "width":3}
+            },
+            # "hoverinfo": "label",
+            "textinfo": "label",
+            # "hole": 0.3,
+        }],
+        "layout": {
+            "margin": dict(l=20, r=20, t=20, b=20),
+            "showlegend": True,
+            "paper_bgcolor": "rgba(0,0,0,0)",
+            # "plot_bgcolor": "rgba(0,0,0,0)",
+            # "font": {"color": "white"},
+            "autosize": True,
+        },
+    }
+
+
+# Heatmap -> update
+@app.callback(Output('vm_map', 'figure'), [Input('interval-component', 'n_intervals')])
+def update_map(n):
+    y, a_text, z = heatmap_helper()
+
+    hover = []
+    for i in range(len(z)):
+        y_elem = y[i]
+        tmp = []
+        for z_elem in z[i]:
+            tmp.append("Operator: {} <br> Tx number: {}".format(y_elem, str(z_elem)))
+        hover.append(tmp)
+
+    colorscale = [[0, '#e8dd9b'], [1, 'rgb(79, 129, 102)']]
+    fig = ff.create_annotated_heatmap(z, y=y, annotation_text=a_text, colorscale=colorscale, text=hover, 
+                                        hoverinfo='text', connectgaps=True, showscale=True)
+    return fig
+
+
+'''
+Tab2 Callback
+'''
 # Radio -> dropdown options
 @app.callback(Output("party_options", "options"), [Input("party_selector", "value")])
 def display_type(selector):
@@ -186,7 +292,7 @@ def display_type(selector):
     [Input('party_options', 'value'),
      Input('interval-component', 'n_intervals')])
 def update_output(value, n):
-    logger.info(f"option's value is {value}")
+    logger.debug(f"option's value is {value}")
     if value == "" or value == None:
         return 'Please choose the ledger you want to check'
 

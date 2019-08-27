@@ -1,78 +1,78 @@
 ---
 - sku: sku001
-  supplier: &id003
-    address: z1XUqntT77NDz7TPq5tj3bMn4EBi8dQgjnm
-    moniker: supplier007
-    pk: csK9G-6OznVNvSarnVqg4NzbMLUa85h7zcej3JGRejM
-    sk: Tbgr3QjmseGPBhW_AFDxX7r8wbcGKize0F2lnO2wH9lywr0b7o7OdU29JqudWqDg3NswtRrzmHvNx6PckZF6Mw
+  supplier:
+    address: z1S39p25bz9uz4THSbdCwtpMX1m3xpG5MiC
+    moniker: supplier001
+    pk: rAQmcb6OP6hOTiVr46mdhmbdIfwV2GenuYiuNXkF2JQ
+    sk: 9F4vwqsvhMXZ31baXohPZzm9pkOGytrSpRiqdUwyqzCsBCZxvo4_qE5OJWvjqZ2GZt0h_BXYZ6e5iK41eQXYlA
   value: 5
 - sku: sku002
-  supplier: &id002
-    address: z1nK2hszW8vjn5BtmWLSmv9mUz6ZBXucAPb
-    moniker: supplier004
-    pk: _iACROaHAxeANoPMgR-NmU5N5ltbk6hwzF3GSZb238Q
-    sk: 4gAJOkF_-KADwUbsrUaqxaoQdtrjWKRZ-F-o6wJuqMP-IAJE5ocDF4A2g8yBH42ZTk3mW1uTqHDMXcZJlvbfxA
-  value: 5
+  supplier: &id004
+    address: z1Zsg7fzqEMUx9FEJutJYcoY4Yp9pUipqUw
+    moniker: supplier003
+    pk: TZhOMumA-kOeEbELeOp2S8Xf46n1nBdF6N1RFaLtOxE
+    sk: M_TkilQPr8Pkqe3Cz6lxk4679D8LZSMs_cl_vrkKrglNmE4y6YD6Q54RsQt46nZLxd_jqfWcF0Xo3VEVou07EQ
+  value: 4
 - sku: sku003
-  supplier: &id005
-    address: z1hs61Z7R7tKQfWupmsqDbkznGanegLTVgj
-    moniker: supplier010
-    pk: 7FBV1xUzQJjBsGfx6ZcwjYoe-mUlAYyyHQDdVg9KAps
-    sk: 8DEv-0JGSrfXu7pJ0qR5rhiZjtzd74-OdayAqp0aF7fsUFXXFTNAmMGwZ_HplzCNih76ZSUBjLIdAN1WD0oCmw
-  value: 2
+  supplier: &id002
+    address: z1TDmbyqxURPSBHJNqVFaM1zdRQE4ujfXV8
+    moniker: supplier008
+    pk: KB97ARZyoBySLbBCBaEdF-ALUlgTShhDESo2IK1nYFc
+    sk: 8OCb4z8I2TsFbs_DrC5Xknmtbn4xSdBEuCC6lC2ewSUoH3sBFnKgHJItsEIFoR0X4AtSWBNKGEMRKjYgrWdgVw
+  value: 1
 - sku: sku004
   supplier: &id001
-    address: z1iCT7iXucjpUV6sYtctM4ZcVW5VthJfSDa
-    moniker: supplier001
-    pk: L1xZfNbb9YFEkxoO-0ZKpbGnrcvGtNqDL2ECfYKqfgk
-    sk: 1G3VGSlqjbOi6Ron1AAYWmvvI9odO5cMBdperO0ML7YvXFl81tv1gUSTGg77Rkqlsaety8a02oMvYQJ9gqp-CQ
+    address: z1gsFQc96uHHfGMUZt9iPhhpwdBkD3iF36C
+    moniker: supplier004
+    pk: wY4WOPPOaL8EONB25jYSaGmdwHokcRCkL_b5E9t_Iuk
+    sk: x3N_C4sMed5dneHF755RI9taYF27_foMGzlpfSzkp9fBjhY4885ovwQ40HbmNhJoaZ3AeiRxEKQv9vkT238i6Q
   value: 2
 - sku: sku005
   supplier: *id001
-  value: 2
+  value: 1
 - sku: sku006
-  supplier: &id004
-    address: z1faGHNBKj4ru6ZKqduveBkPiP6SuS22gcx
+  supplier: &id003
+    address: z1ZL64fQBeAee2DTrf3tMRhbHbC2wSxdCaf
     moniker: supplier006
-    pk: 3eY-gV4mndJKDau02_ut1u2t9A4eIzRVoM_1jZhdbAc
-    sk: KOT1dGP3Lmbi0tgSZtlqbAdjfTB00QlPGWM_2oCCzafd5j6BXiad0koNq7Tb-63W7a30Dh4jNFWgz_WNmF1sBw
-  value: 4
+    pk: WGbUYs5Ne2jt4EWlUG3bADDF-Lj9JjbIo4abuCh15Yk
+    sk: 7sjOaPxPjDG72TmoHwDy5hQOls2cJs0HWYCb-vqRFWBYZtRizk17aO3gRaVQbdsAMMX4uP0mNsijhpu4KHXliQ
+  value: 3
 - sku: sku007
-  supplier:
-    address: z1S33MjJiJcf3CGsrRaATUbQ4Q4jsR7tH5v
-    moniker: supplier009
-    pk: NiW6hKUIag6rFbbEW-HMSCHGYVNGMisZd_twzGNGN64
-    sk: J69el6nRvl_yOW69ST7b-P_IqZ5lOXbH6TAwTjegYYY2JbqEpQhqDqsVtsRb4cxIIcZhU0YyKxl3-3DMY0Y3rg
-  value: 2
-- sku: sku008
   supplier: *id002
+  value: 3
+- sku: sku008
+  supplier: *id003
   value: 3
 - sku: sku009
-  supplier: *id003
+  supplier:
+    address: z1i5886nP8vVBAsevcbPJsBUCk8yAmTMKLn
+    moniker: supplier005
+    pk: qwKVIYtqSTZBMqX_KmS0AbNKGzgL32u2r7dcr6t8tC8
+    sk: nrHJFtmLMk1niMldbnsrHW_XrZmbA8jb4xGwNBCtY2mrApUhi2pJNkEypf8qZLQBs0obOAvfa7avt1yvq3y0Lw
   value: 4
 - sku: sku010
-  supplier:
-    address: z1oT9ch9Wg2r5U8cuQTdPtb5AT7Ty9v16yn
-    moniker: supplier002
-    pk: yeGUMmu8wj_IZM6ptnz8E7iDl8PsHbg8KFZtMPTP3SE
-    sk: T-bHE6QpqC4m5IZMUoat1bsL2ot-6d0PXwS5qaqI7O3J4ZQya7zCP8hkzqm2fPwTuIOXw-wduDwoVm0w9M_dIQ
-  value: 4
-- sku: sku011
   supplier: *id004
-  value: 5
+  value: 1
+- sku: sku011
+  supplier: *id002
+  value: 4
 - sku: sku012
-  supplier: *id005
-  value: 3
+  supplier:
+    address: z1auBjE5eZtQvWu9m1JbtidjNLfCdQAT9Sd
+    moniker: supplier009
+    pk: rS42N8kaVoR8L5z84pgqTMTcQLCngdZ4Gg4gu339B0o
+    sk: YWTIEj12KOqm9w5jj1sF9jKqGn8fJXonwZCZKL8E8nOtLjY3yRpWhHwvnPzimCpMxNxAsKeB1ngaDiC7ff0HSg
+  value: 1
 - sku: sku013
   supplier: *id001
-  value: 4
+  value: 2
 - sku: sku014
-  supplier: *id002
+  supplier: *id001
   value: 3
 - sku: sku015
   supplier:
-    address: z1Y2rR7SdZ2p6yKnZeotdEw4GaRw8Q45puV
-    moniker: supplier005
-    pk: z4BtzmFus3CJtJDdPNfBvd6tzzS9m1fY9hmRdqFbKJU
-    sk: 19OEWWuTYM_vUCB7i51fhXzgQHg3V3fWrGAKSnU5uD7PgG3OYW6zcIm0kN0818G93q3PNL2bV9j2GZF2oVsolQ
-  value: 4
+    address: z1mA6F9NRStZjUhCW9FTSfqfnqgJkkWw7Dj
+    moniker: supplier002
+    pk: apXrav82FzZKQwRDJPM8O-91eqvNyq41JfWimKSHIGA
+    sk: sXsHpfqKhbg6NL-TCLCNp8bqiqfVcvjHi5K6Bplp13hqletq_zYXNkpDBEMk8zw773V6q83KrjUl9aKYpIcgYA
+  value: 3
