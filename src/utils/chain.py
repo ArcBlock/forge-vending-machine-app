@@ -1,13 +1,14 @@
 import json
 import logging
 import sys
+sys.path.append('./src')
 from datetime import datetime
 
 from forge_sdk import ForgeConn
 from forge_sdk import protos
 from forge_sdk import utils
 from simulator.protos.aggregate_pb2 import AggregateTx
-sys.path.append('./src')
+
 
 
 # set up logger

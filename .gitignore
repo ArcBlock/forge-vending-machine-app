@@ -18,6 +18,7 @@ dist/
 
 _vendors
 .env
+.compiled/
 src/protos/_output
 _build
 package-lock.json

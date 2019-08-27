@@ -1,0 +1,80 @@
+/* Table of contents
+––––––––––––––––––––––––––––––––––––––––––––––––––
+- Banner
+- Tables/Dropdown
+- Containers
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+body {
+    background-color: #f2f2f2;
+    margin: 3%;
+}
+
+.app-content {
+    /* background-color: #ffffff; */
+    padding:20px;
+}
+
+
+.banner {
+    height: fit-content;
+    /* background-color: rgb(241, 252, 252); */
+    /* display: flex;
+    flex-direction: row; */
+    align-items: center;
+    justify-content: space-between;
+    /* border-bottom: 1px solid #4B5460; */
+    padding: 1rem 10rem;
+    width: 100%;
+  }
+  
+  
+  .banner h3 {
+    color: #222222;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 2rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
+    
+  }
+  
+  .banner h5 {
+    color: #222222;
+    font-family: "Gill Sans", sans-serif;
+    font-size: 1.6rem;
+    line-height: 1;
+    text-align: center; 
+  }
+
+
+.custom-tabs-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.custom-tabs {
+    border-radius: 10px;
+}
+
+.custom-tab {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+
+  .pretty_container {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 25px;
+    position: relative;
+  }
+  
+.pretty_container h4, h5{
+    color: #222222;
+    font-family: "Gill Sans", sans-serif;
+    line-height: 1;
+    text-transform: capitalize;   
+}

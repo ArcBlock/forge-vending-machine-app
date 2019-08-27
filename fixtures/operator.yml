@@ -1,41 +1,13 @@
 ---
-- address: z1b2QFnqQsYW9JQ8AMwVgiXa5eBKT9BfLuv
+- address: z1TnjCwLpt4GqmhRJMSPCAHibKTEBV31cXn
   moniker: operator001
-  pk: TULltbVkLqNXmW76udGPQ_qIwCU4kMRZGHUwbjuvcMU
-  sk: JrBZ9iSKbBrNJv6b8D77O07RzLx7z06odESGg9MoDhNNQuW1tWQuo1eZbvq50Y9D-ojAJTiQxFkYdTBuO69wxQ
-- address: z1azx7C7kMXr3jKJoGKc1WNgWUQafHuZ7oL
+  pk: aKbUFTWZ1PA9EF3jlChfkEdQuwyqqdSlC5H9gXyUE00
+  sk: ZOAuz9YmIYH76JrbIi0Wohx83Ux8GV8yQbIVtLVcGUZoptQVNZnU8D0QXeOUKF-QR1C7DKqp1KULkf2BfJQTTQ
+- address: z1gPpcuUr9J6ek9D1S6MRJzjPbvJMPKHjf9
   moniker: operator002
-  pk: xvUbASWeXf9j-xNIuaeMALTk_CcQYq0D5JVwH4Vb2fA
-  sk: t_4Rwgw0qS7tnEGI47E9_AfM569OevUWJoxlmHzG-ILG9RsBJZ5d_2P7E0i5p4wAtOT8JxBirQPklXAfhVvZ8A
-- address: z1iMCLkRGmMPTSGVadAwAfyyyV3H4EN6nqE
+  pk: O3iDU8u5Gw9NJDy9UqUATdR1vuDe0OH2s_4kAPyzpSA
+  sk: p0XvNgfHWG6dxRy0wchmMrGHCIyKodcShMvrrvZa6ZQ7eINTy7kbD00kPL1SpQBN1HW-4N7Q4faz_iQA_LOlIA
+- address: z1oYE2SJF54mNsvdQw5TerVkdVJxDZrqDYC
   moniker: operator003
-  pk: -VwrhZNJzG7tD-6grDOyhjxtWLnrFizMSjl4I95Q9SM
-  sk: 2QzotVKeN3tuKtlkIowKevHpTRyaMr1y8HXu0Ru6Lpb5XCuFk0nMbu0P7qCsM7KGPG1YuesWLMxKOXgj3lD1Iw
-- address: z1TiqoRj49RJkgJStXpbKpuvGVk2sebtHVp
-  moniker: operator004
-  pk: NDUgjvrKiUngqC-9snRB1nGyx1pvBtaKLv7tsFv1SK8
-  sk: f23fK0OJ9M0XVk8qk_ysscjVEcKHWb98o9TKI9whfiY0NSCO-sqJSeCoL72ydEHWcbLHWm8G1oou_u2wW_VIrw
-- address: z1m3SQ9yLb7ZLQSBCP8eyA8EHGrnMq6jYP3
-  moniker: operator005
-  pk: g9g2nuwwL1gaa9-icXQr-eI33_HDOtolgOT7ejUC6OU
-  sk: WE380VETgxrTrb2ccGbF0fM3qO9YM8K6PBO4EXfGnoKD2Dae7DAvWBpr36JxdCv54jff8cM62iWA5Pt6NQLo5Q
-- address: z1SACa7YqTivtsVvboumASrjNYo2GsXyTrG
-  moniker: operator006
-  pk: Qt-cEDjN3Bmjwya2jwmy47ThHy3WSzltXmv9EnAsDK0
-  sk: 9HwEa83qrbM23pyEM1n6JjHQXlpLkQo-kaRQJFpfIS5C35wQOM3cGaPDJraPCbLjtOEfLdZLOW1ea_0ScCwMrQ
-- address: z1fj477vJnZf8CgwzCKujBggRnRSr7aZNRv
-  moniker: operator007
-  pk: bARUV3fheWYuc8jw47ZFR5RF8bKIp0trdNgZU9mEnrc
-  sk: EEdtGrG_Gwxk9gl_QT3Vp_3nN9gHWwOMgMUU_jAisRVsBFRXd-F5Zi5zyPDjtkVHlEXxsoinS2t02BlT2YSetw
-- address: z1Uw4fZsNRq4MkdQicMmeEwuQTJPEbaPMgX
-  moniker: operator008
-  pk: rYnfa3ICg1crRN8WYXP-OM133PR55zoeECGZaL29VYo
-  sk: ET5FS8Z6vMwpLa1202lPcQYCL-I5OS6R65F_aRW0eUatid9rcgKDVytE3xZhc_44zXfc9HnnOh4QIZlovb1Vig
-- address: z1WQy2aqfBS1pxxTpSnjMa42DrQogF1dmoH
-  moniker: operator009
-  pk: jiBbtnbTrSzYNYxzGfSPge_bNYfDdH6nDhMIAUTU-mc
-  sk: DzdnJHwST4H_TlgNbbct1gtnBeTJ7mZfhiLdUXt_Uc-OIFu2dtOtLNg1jHMZ9I-B79s1h8N0fqcOEwgBRNT6Zw
-- address: z1TpZTxyxCs1fEGHrs5jrVWPh8yQBnrbbha
-  moniker: operator010
-  pk: _ztD11rp2Z3kAy_CKtqlf_s36lQkGqxU08cL7kHtnaM
-  sk: mecCG0_iuw2SiITHn0rKa877SkFpD1DPI-8BxWBHDpj_O0PXWunZneQDL8Iq2qV_-zfqVCQarFTTxwvuQe2dow
+  pk: KQ_ZJEGdB5M69CzNxMcNMm2QRmvAZCNDAQOAAEIxNLg
+  sk: v44nfa7zXI0Q5Fmdw7lsDaQdQNK_Bjy_8QPRumjMTQkpD9kkQZ0Hkzr0LM3Exw0ybZBGa8BkI0MBA4AAQjE0uA

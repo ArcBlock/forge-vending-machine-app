@@ -12,44 +12,14 @@ from forge_sdk import protos
 from forge_sdk import utils
 from google.protobuf.timestamp_pb2 import Timestamp
 from protos.aggregate_pb2 import AggregateTx
-from sku_gen import sku_generator
 from utils import wallets
 from utils.chain import config
 from utils.chain import rpc
-from wallet_gen import wallet_generator
-
 
 
 # set up logger
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("simulator")
-
-
-def prepare(num):
-    '''
-    Prepare necessary data (of wallets and sku) for simulation;
-    for wallets:
-        Declare a certain number of wallets on the chain for each party (vending_machine, operator, manufacturer, supplier, and location),
-        and save key info of wallets (address, pk, sk, and moniker) as lists of dict in corresponding yaml files (fixtures/{}.yml).
-    for sku:
-        Group each sku's name and a random price as a dict,
-        and put these dicts in a list and save it in fixtures/sku.yml
-    ------
-    Args:
-        num(int): the number of elements for each category
-
-    Output:
-        1. declare sets of wallets on the chain
-        2. generate yaml files in `fixtures/.`
-    '''
-
-    # declare wallets
-    for party in ["vending_machine", "operator", "manufacturer", "supplier", "location"]:
-        wallet_generator(party, num)
-
-    # create sku
-    sku_generator(num)
-    time.sleep(10)
 
 
 async def send(context):
@@ -58,26 +28,28 @@ async def send(context):
     Send this bill on the chain through AggregateTx
     ------
     Args:
-        context(dict): all necessary info (items, vending_machines, operators, manufacturers, suppliers, locations, batch)
+        context(dict): all necessary info (items, vending_machines, batch)
 
     Output:
         send aggregate tx on the chain
     '''
 
     # put random info together to generate a random bill
-    item = choice(context['items'])
-    vm = choice(context['vending_machines'])
-    op = choice(context['operators'])
-    ma = choice(context['manufacturers'])
-    su = choice(context['suppliers'])
-    lo = choice(context['locations'])
+
+    item_unit = choice(context['items'])
+    vm_unit = choice(context['vms'])
+
+    op = vm_unit['operator']
+    ma = vm_unit['manufacturer']
+    su = item_unit['supplier']
+    lo = vm_unit['location']
 
     # get current time
     curr_time = Timestamp()
     curr_time.GetCurrentTime()
 
     # get item's value
-    value = utils.int_to_biguint(utils.to_unit(item['value']))
+    value = utils.int_to_biguint(utils.to_unit(item_unit['value']))
 
     logger.debug("before tx...")
     logger.debug(
@@ -91,15 +63,15 @@ async def send(context):
 
     # group a wallet object for vending_machine
     vm_wallet = protos.WalletInfo(pk=utils.multibase_b64decode(
-        vm['pk']), sk=utils.multibase_b64decode(vm['sk']), address=vm['address'])
+        vm_unit['pk']), sk=utils.multibase_b64decode(vm_unit['sk']), address=vm_unit['address'])
 
     # creat tx
-    itx = AggregateTx(sku=item['sku'], value=value, time=curr_time, operator=op['address'],
+    itx = AggregateTx(sku=item_unit['sku'], value=value, time=curr_time, operator=op['address'],
                       manufacturer=ma['address'], supplier=su['address'], location=lo['address'])
     itx2 = utils.encode_to_any(type_url="fg:t:aggregate", data=itx)
 
     logger.info(
-        f"batch {context['batch']} is sending tx... ---> value: {item['value']}, from: {vm['address']}, operator: {op['address']}, manufacturer: {ma['address']}, supplier: {su['address']}, location: {lo['address']}")
+        f"batch {context['batch']} is sending tx... ---> value: {item_unit['value']}, from: {vm_unit['address']}, operator: {op['address']}, manufacturer: {ma['address']}, supplier: {su['address']}, location: {lo['address']}")
     res = rpc.send_itx(tx=itx2, wallet=vm_wallet, nonce=0)
 
     await asyncio.sleep(5)
@@ -140,7 +112,7 @@ async def simulate(context):
 async def main(batch):
     '''
     Main function for simulator, running with Python Coroutines.
-    Declare new wallets if there is an env var "DECLARE_WALLETS"=yes, load data from yaml files, and call simulate()
+    Load data from yaml files, and call simulate()
     ------
     Args:
         batch(int): the number of coroutines
@@ -148,20 +120,10 @@ async def main(batch):
     Output:
         call simulate()
     '''
-    declare_wallets = os.environ.get("DECLARE_WALLETS")
-
-    if declare_wallets == "yes":
-        logger.info("first-time simulate, declaring wallets...")
-        prepare(10)
-    else:
-        await asyncio.gather(*(simulate(dict(items=wallets.items,
-                                             vending_machines=wallets.vending_machines,
-                                             operators=wallets.operators,
-                                             manufacturers=wallets.manufacturers,
-                                             suppliers=wallets.suppliers,
-                                             locations=wallets.locations,
-                                             batch=n,
-                                             )) for n in range(batch)))
+    await asyncio.gather(*(simulate(dict(items=wallets.item_units,
+                                            vms=wallets.vm_units,
+                                            batch=n,
+                                            )) for n in range(batch)))
     # await send()
 
 

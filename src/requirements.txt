@@ -1,4 +1,5 @@
 dash==1.1.1
+dash-bootstrap-components==0.7.0
 dash-daq==0.1.7
 forge-python-sdk==0.35.0
 pandas==0.25.0
