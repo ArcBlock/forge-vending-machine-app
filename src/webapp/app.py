@@ -1,6 +1,6 @@
 import logging
 import sys
-
+sys.path.append('./src')
 import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
@@ -8,14 +8,20 @@ import dash_daq as daq
 import dash_html_components as html
 import dash_table
 import difflib
+import operator
 import pandas as pd
 import plotly.figure_factory as ff
-from dash.dependencies import Input
-from dash.dependencies import Output
-from dash.dependencies import State
-from helpers import get_parties_states, query_rows, get_value_prop, heatmap_helper
+import plotly.graph_objects as go
+
+from dash.dependencies import Input, Output, State
+from datetime import date
+from datetime import datetime as dt
+
+from helpers import get_parties_states, get_db, get_distinct_value, query_rows, get_value_prop
+from helpers import heatmap_helper, moniker_name_converter, get_wallet_address, get_column, get_value_prop_with_conditions
 from helpers import PARTY_TYPES, PARTY_LIST
-sys.path.append('./src')
+
+
 
 
 # set up logger
@@ -37,7 +43,7 @@ logger.debug(f"\n {df_account_states}")
 df_txs = pd.DataFrame
 
 party_options = [
-    {"label": str(party), "value": str(PARTY_TYPES[party])}
+    {"label": str(PARTY_TYPES[party]), "value": str(party)}
     for party in PARTY_TYPES
 ]
 logger.debug(party_options)
@@ -58,7 +64,7 @@ def build_banner():
         ],
     )
 
-# building components for tab1
+
 def piechart():
     return dcc.Graph(
         id="piechart",
@@ -80,32 +86,160 @@ def piechart():
                 }
             ],
             "layout": {
-                "margin": dict(l=20, r=20, t=20, b=20),
+                "margin": dict(l=20, r=20, t=20, b=30),
                 "showlegend": True,
-                "paper_bgcolor": "rgba(0,0,0,0)",
-                "plot_bgcolor": "rgba(0,0,0,0)",
+                "paper_bgcolor": "#f9f9f9",
                 "autosize": True,
             },
         },
     )
 
+
 def vm_map():
-    y, text, z = heatmap_helper()
+    y, a_text, z = heatmap_helper()
     colorscale = [[0, '#e8dd9b'], [1, 'rgb(79, 129, 102)']]
+    fig = ff.create_annotated_heatmap(z, y=y, annotation_text=a_text, colorscale=colorscale, hoverinfo='text', showscale=True)
+    fig.update_layout(
+        xaxis=dict(title='Vending Machines', showgrid=False, title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
+        yaxis=dict(title='Operators', title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
+        plot_bgcolor=('white'),
+        paper_bgcolor="#f9f9f9",
+        # margin=dict(l=20, r=20, t=20, b=30),
+    )
+                                        
     return dcc.Graph(
         id='vm_map',
-        figure=ff.create_annotated_heatmap(z, y=y, annotation_text=text, colorscale=colorscale)
+        figure=fig,
     )
+
+
+def geo_scatter():
+    colors = ['rgb(33, 75, 99)','rgb(79, 129, 102)','rgb(151, 179, 100)','rgb(175, 49, 35)','rgb(36, 73, 147)']
+    fig = go.Figure()
+    distinct_op = get_distinct_value('operator')
+    for i in range(len(distinct_op)):
+        op = distinct_op[i][0]
+        df = query_rows('operator', op)
+        fig.add_trace(go.Scattergeo(
+            locationmode = 'USA-states',
+            lon = df['lo_lng'],
+            lat = df['lo_lat'],
+            text = "vending machine ID: " + df['vm_id'],
+            marker = dict(
+                color=colors[i],
+                opacity=0.8,
+                size=18,
+                # sizemode = 'area'
+            ),
+            name = moniker_name_converter(op),
+            hoverinfo='text+name'
+        ))
+    fig.update_layout(
+        # title_text = '(Click legend to toggle traces)',
+        autosize=True,
+        geo = dict(
+            scope = 'usa',
+            landcolor = '#e3e1cf',
+        ),
+        legend_orientation="h",
+        margin = go.layout.Margin(l=10, r=10, t=10, b=10),
+        showlegend = True,
+    )
+    return dcc.Graph(id='geo-scatter', figure=fig)
+
 
 def create_tab1():
     return html.Div(
         id="tab-1-content",
         children=[
-            piechart(),
-            vm_map()
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="col-xl-4",
+                        children=[
+                            html.Div(
+                                className="pretty_container_info",
+                                children=[
+                                    dcc.Markdown('''
+                                    #### Welcome to the Vending Machine Market Analytics Dashboard  
+                                    Stay up-to-date with the dynamic *Blockchain-backed* statistics of vending machines operators.
+                                    >
+                                    >  ** Exploration Tips **
+                                    >  * Click on the legends of the `map` and the `pie chart` to toggle operators.
+                                    >  * Click on the `heatmap` to see the 5 top selling items of the selected vending machine.
+                                    >
+                                    '''),
+                                    html.Br(),
+                                ]
+                            )
+                        ]
+                    ),
+                    html.Div(
+                        className="col-xl-4",
+                        children=[
+                            html.Div(
+                                className="pretty_container_fig",
+                                children=[
+                                    html.H4("Operator Distribution"),
+                                    geo_scatter(),
+                                ]
+                            )
+                        ]
+                    ),
+                    html.Div(
+                        className="col-xl-4",
+                        children=[
+                            html.Div(
+                                className="pretty_container_fig",
+                                children=[
+                                    html.H4("Market Share"),
+                                    piechart(),
+                                ]
+                            )
+                        ]
+                    ),
+                ]
+            ),
+            html.Div(
+                className="row",
+                children=[
+                    html.Div(
+                        className="col-xl-4",
+                        children=[
+                            html.Div(
+                                id='item-table',
+                                className="pretty_container_fig",
+                            )
+                        ]
+                    ),
+                    html.Div(
+                        className="col-xl-8",
+                        children=[
+                            html.Div(
+                                className="pretty_container_fig",
+                                children=[
+                                    html.H4("Sales Performance"),
+                                    vm_map(),
+                                ]
+                            )
+                        ]
+                    ),
+                ]
+            )                       
         ]
     )
-        
+
+
+def date_picker():
+    return dcc.DatePickerRange(
+                id='date-picker-range',
+                min_date_allowed=dt(2019, 8, 1),
+                # max_date_allowed=dt(2017, 9, 19),
+                initial_visible_month=dt(2019, 8, 1),
+                # start_date=dt(2019, 8, 1),
+                end_date=dt.now(),
+            )
 
 
 def create_tab2():
@@ -120,14 +254,13 @@ def create_tab2():
                         id="selector",
                         className="pretty_container",
                         children=[
-                            html.P("Filter by party:", className="control_label"),
+                            html.P("Select party:", className="label"),
                             dcc.RadioItems(
-                                id="party_selector",
+                                id="party-selector",
                                 options=[
                                     {"label": "All ", "value": "all"},
                                     {"label": "Operators", "value": "operator"},
-                                    {"label": "Manufacturers ",
-                                        "value": "manufacturer"},
+                                    {"label": "Manufacturers ", "value": "manufacturer"},
                                     {"label": "Suppliers ", "value": "supplier"},
                                     {"label": "Locations ", "value": "location"},
                                 ],
@@ -138,11 +271,13 @@ def create_tab2():
                                 },
                             ),
                             dcc.Dropdown(
-                                id="party_options",
+                                id="party-options",
                                 options=party_options,
                                 multi=False,
                                 value='',
                             ),
+                            html.P("Select date range:", className="label"),
+                            date_picker()
                         ]
                     )                               
                 ],
@@ -180,27 +315,21 @@ app.layout = html.Div(
             children=[
                 dcc.Tabs(
                     id="tabs", 
-                    parent_className='custom-tabs',
-                    className="custom-tabs-container",
                     value='tab-2', 
                     children=[
                         dcc.Tab(
-                            label='1', 
+                            label='Market Analytics', 
                             value='tab-1', 
-                            className='custom-tab',
-                            selected_className='custom-tab--selected'
                         ),
                         dcc.Tab(
-                            label='2', 
+                            label='Ledger Platform', 
                             value='tab-2',
-                            className='custom-tab',
-                            selected_className='custom-tab--selected'
                         ),
                     ],
                     colors={
                         "border": "white",
-                        "primary": 'rgb(79, 129, 102)', #"#4E6AF6",
-                        "background": '#9fb3a9', #"#c4ccf5",
+                        "primary": 'rgb(79, 129, 102)', 
+                        "background": '#9fb3a9',
                     } 
                 ),
                 html.Div(id='app-content', className='app-content')
@@ -228,32 +357,32 @@ Tab1 Callback
 @app.callback(Output('piechart', 'figure'), [Input('interval-component', 'n_intervals')])
 def update_piechart(n):
     prop_dict = get_value_prop('operator')
+    labels = []
+    for k in [*prop_dict]:
+        labels.append(moniker_name_converter(k))
     return {
-        "data": [{
-            "labels":[*prop_dict],
-            "values": [*prop_dict.values()],
-            "type": "pie",
-            "marker": {
-                "colors": ['rgb(33, 75, 99)',
-                            'rgb(79, 129, 102)',
-                            'rgb(151, 179, 100)',
-                            'rgb(175, 49, 35)',
-                            'rgb(36, 73, 147)'], 
-                #  "line": {"color": "white", "width":3}
+            "data": [{
+                "labels":labels,
+                "values": [*prop_dict.values()],
+                "type": "pie",
+                "marker": {
+                    "colors": ['rgb(33, 75, 99)',
+                                'rgb(79, 129, 102)',
+                                'rgb(151, 179, 100)',
+                                'rgb(175, 49, 35)',
+                                'rgb(36, 73, 147)'], 
+                    #  "line": {"color": "white", "width":3}
+                },
+                "textinfo": "label",
+            }],
+            "layout": {
+                "margin": dict(l=30, r=30, t=30, b=10),
+                "paper_bgcolor": "#f9f9f9",
+                "autosize": True,
+                "showlegend":True,
             },
-            # "hoverinfo": "label",
-            "textinfo": "label",
-            # "hole": 0.3,
-        }],
-        "layout": {
-            "margin": dict(l=20, r=20, t=20, b=20),
-            "showlegend": True,
-            "paper_bgcolor": "rgba(0,0,0,0)",
-            # "plot_bgcolor": "rgba(0,0,0,0)",
-            # "font": {"color": "white"},
-            "autosize": True,
-        },
-    }
+        }
+
 
 
 # Heatmap -> update
@@ -262,24 +391,107 @@ def update_map(n):
     y, a_text, z = heatmap_helper()
 
     hover = []
-    for i in range(len(z)):
+    for i in range(len(y)):
         y_elem = y[i]
+        z_elems = z[i]
+        t_elems = a_text[i]
         tmp = []
-        for z_elem in z[i]:
-            tmp.append("Operator: {} <br> Tx number: {}".format(y_elem, str(z_elem)))
+        for z_elem, t_elem in zip(z_elems, t_elems):
+            tmp.append("VM: {} <br>Operator: {} <br>Tx number: {}".format(str(t_elem), y_elem, str(z_elem)))
         hover.append(tmp)
 
     colorscale = [[0, '#e8dd9b'], [1, 'rgb(79, 129, 102)']]
     fig = ff.create_annotated_heatmap(z, y=y, annotation_text=a_text, colorscale=colorscale, text=hover, 
-                                        hoverinfo='text', connectgaps=True, showscale=True)
+                                        hoverinfo='text', showscale=True)
+
+    fig.update_layout(
+        xaxis=dict(title='Vending Machines', showgrid=False, title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
+        yaxis=dict(title='Operators', title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
+        plot_bgcolor=('white'),
+        paper_bgcolor="#f9f9f9",
+        # margin=dict(l=20, r=20, t=20, b=30),
+    )
+
     return fig
 
 
+# DataTable(best sell) -> update, click 
+@app.callback(Output('item-table', 'children'), [Input('vm_map', 'clickData'), Input('interval-component', 'n_intervals')])
+def display_table(data, n):
+
+    # if a vending machine is selected
+    if data is not None:
+        clean_data = data['points'][0]['text'].split(": ")[1]
+        vm_id = clean_data.split(" <br>")[0]
+        entities = sorted(get_value_prop_with_conditions('item', 'vm_id', vm_id).items(), key=operator.itemgetter(1), reverse=True)
+        etype = 'select'
+
+        # selected vending machine has no item sold yet
+        if entities == []:
+            entities = sorted(get_value_prop('item').items(), key=operator.itemgetter(1), reverse=True)
+            etype = 'reselect'
+
+    else: # no vending machine is selected
+        entities = sorted(get_value_prop('item').items(), key=operator.itemgetter(1), reverse=True)
+        etype = 'notselect'
+
+    # clean up entities
+    length = len(entities) 
+    if length >= 5:
+        rank = [1, 2, 3, 4, 5]
+        entities = entities[:5]
+    
+    else:
+        rank = list(range(1, length + 1))
+
+    # generate table
+    df_table = pd.DataFrame(entities, columns=['Item', 'Sales Volume'])    
+    df_table['Ranking'] = rank
+    column_order = ['Ranking', 'Item', 'Sales Volume']
+    table = dash_table.DataTable(
+                columns=[{'id': c, 'name': c} for c in column_order],
+                data=df_table.to_dict('records'),
+                style_as_list_view=True,
+                style_cell= {'textAlign': 'center', 'padding': '10px', 'font-size': '15px'},
+                style_cell_conditional=[{
+                    'if': {'column_id': 'Item'},
+                    'textAlign': 'left'    
+                }],
+                style_data = {'border': '5px #f9f9f9 solid'},
+                style_data_conditional=[{
+                    "if": {"row_index": 0},
+                    'color': 'rgb(175, 49, 35)',
+                    'font-size': '18px',
+                    'fontWeight': 'bold',
+                }],
+                style_header= {"backgroundColor": 'rgb(79, 129, 102)', 'color': 'white'},
+                style_table = {'border': '10px #f9f9f9 solid'}
+            )  
+    
+    # generate layout
+    if etype == 'select':
+        info = html.P("For vending machine " + vm_id + ", operated by " + data['points'][0]['y'], 
+            style={'padding-left':'30px', 'padding-top':'5px', 'color':'rgb(33, 75, 99)'})
+
+    elif etype == 'reselect':
+        info = html.P("Vending machine " + vm_id + ", operated by " + data['points'][0]['y'] + ", has not sold any item yet. Please click on another one.",
+            style={'padding-left':'30px', 'padding-top':'5px','color':'rgb(175, 49, 35)'})
+
+    elif etype == 'notselect':
+        info = html.Br()
+
+    children = [
+        html.H4("5 Top Selling Items"),
+        info,
+        table,
+    ]
+
+    return children
 '''
 Tab2 Callback
 '''
 # Radio -> dropdown options
-@app.callback(Output("party_options", "options"), [Input("party_selector", "value")])
+@app.callback(Output("party-options", "options"), [Input("party-selector", "value")])
 def display_type(selector):
     if selector == "all":
         return party_options 
@@ -289,9 +501,11 @@ def display_type(selector):
 # Dropdown -> selector output
 @app.callback(
     Output('selector_output', 'children'),
-    [Input('party_options', 'value'),
+    [Input('party-options', 'value'),
+     Input('date-picker-range', 'start_date'),
+     Input('date-picker-range', 'end_date'),
      Input('interval-component', 'n_intervals')])
-def update_output(value, n):
+def update_output(value, start, end, n):
     logger.debug(f"option's value is {value}")
     if value == "" or value == None:
         return 'Please choose the ledger you want to check'
@@ -301,20 +515,42 @@ def update_output(value, n):
     # wallet's state info
     df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
     output = df_account_states[df_account_states['moniker'] == value]
+    party_name = moniker_name_converter(output['moniker'].values[0])
 
     # txs info
-    column = difflib.get_close_matches(value, ['operator', 'manufacturer', 'location', 'supplier'])[0]
-    df_txs = query_rows(column, value).sort_values(by=['time'], ascending=False)
-    shown_columns = ['item', 'price', 'time', 'vending_machine', 'hash']
-    table = dash_table.DataTable(
-                data=df_txs.to_dict('records'),
-                columns=[{'id': c, 'name': c} for c in shown_columns],
-                style_table={'overflowX': 'scroll'},
-                style_cell={'textAlign': 'left', 'margin': '10px'},
+    ptype = difflib.get_close_matches(value, ['operator', 'manufacturer', 'location', 'supplier'])[0]
+    addr_value = get_wallet_address(ptype, value)
+    column = get_column(ptype)
+    # get related txs by searching addresses
+    df_txs = query_rows(column, addr_value).sort_values(by=['time'], ascending=False)
+
+    # filter txs by time
+    if start is None:
+        df_txs = df_txs[df_txs['time'] <= end]
+    else:
+        start = start + " 00:00:00"
+        end = end + " 23:59:59"
+        df_txs = df_txs[(df_txs['time'] >= start) & (df_txs['time'] <= end)]
+
+    # DataTable
+    shown_columns = ['item', 'price', 'time', 'vm_id', 'hash']
+    table = dash_table.DataTable(                
+                columns=[{'id': c, 'name': c} for c in shown_columns], 
+                data=df_txs.to_dict('records'),   
+                page_size= 20,           
                 style_as_list_view=True,
-                page_size= 20,
+                 style_header={'fontWeight': 'bold'},
+                style_cell={'textAlign': 'center', 'margin': '10px', 'minWidth':'80px'},
+                style_cell_conditional=[
+                    {'if': {'column_id': 'item'},
+                    'textAlign': 'left'},
+                ],
+                style_table={'overflowX': 'scroll'},
+                
             )  
 
+    selected_balance = df_txs['price'].sum()
+    selected_num = df_txs.shape[0]
     
     layout = html.Div(
                 children=[
@@ -324,7 +560,7 @@ def update_output(value, n):
                             html.Div(
                                 className='col', 
                                 children=[
-                                    html.H4(output['moniker']),
+                                    html.H4(party_name),
                                     html.P(f"Address: {output['address'].values[0]}"),
                                 ],
                             ),
@@ -332,13 +568,15 @@ def update_output(value, n):
                                 className='col',
                                 children=[
                                     html.H4(output['balance'].values[0], style={'textAlign': 'right'}),
-                                    html.H5("Balance", style={'textAlign': 'right'})
+                                    html.H5("Total Balance", style={'textAlign': 'right'})
                                 ]
                             ),
                         ]
                     ),
-                    html.P(f"Number of bills: {output['num_txs'].values[0]}"),
+                    html.P(f"Total number of bills: {output['num_txs'].values[0]}"),
+                    html.Br(),
                     table,
+                    html.P(f"number: {selected_num} ; balance: {selected_balance}", style={'textAlign': 'right'}),
                 ]
             )
             

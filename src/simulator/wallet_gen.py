@@ -1,11 +1,14 @@
 import os
 import sys
-
-import yaml
-from forge_sdk import utils
-from utils.chain import rpc
-from utils.conf import fixture_path
 sys.path.append('./src')
+import yaml
+
+from faker import Faker
+from forge_sdk import utils
+
+from utils.chain import rpc
+from utils.conf import fixture_path, party
+
 
 
 def create_wallet_dict(moniker: str, passphrase: str) -> dict:
@@ -44,6 +47,8 @@ def wallet_generator(name: str, num: int):
         create `fixtures/{}.yml`
     '''
 
+    
+    fake = Faker()
     data = []
 
     for i in range(num):
@@ -52,7 +57,17 @@ def wallet_generator(name: str, num: int):
         # e.g. passphrase = 'location0011234'
         passphrase = moniker[:2] + "1234"
 
-        data.append(create_wallet_dict(moniker, passphrase))
+        wallet_info = create_wallet_dict(moniker, passphrase)
+       
+        if name == 'location':
+            (lat, lng, _, _, _,) = fake.local_latlng(country_code="US")
+            wallet_info.update(dict(lat = str(lat), lng = str(lng)))
+        if name in party:
+            wallet_info.update(dict(company=fake.company()))
+        elif name == 'vending_machine':
+            wallet_info.update(dict(vm_id=str(i + 1).zfill(3)))
+            
+        data.append(wallet_info)
 
     with open('{}/{}.yml'.format(fixture_path, name), 'w') as outfile:
         yaml.dump(data, outfile, explicit_start=True)

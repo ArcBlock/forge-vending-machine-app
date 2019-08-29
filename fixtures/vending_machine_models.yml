@@ -1,272 +1,476 @@
 ---
-- address: z1fXFhhDpoJiaTZX7RadNjABVZ5xwt16zdg
-  location: &id001
-    address: z1XNyUYGvs4jRYZxrDv4fmHgN6nSUq2Ebus
-    moniker: location016
-    pk: gzjCrvyzJXjYg6pLUBLeCmPn_5A3vyHbMJLuu13KXA8
-    sk: lyIabpUEqLh2REeOO-Th6LcoG6KzN1j0nhNnPQiUHr6DOMKu_LMleNiDqktQEt4KY-f_kDe_Idswku67XcpcDw
-  manufacturer: &id007
-    address: z1Qjo5frWoW3YZqS3g3osEiT99oKcLGj7Gp
-    moniker: manufacturer002
-    pk: -XhUsUvtqP_V8Csjngibj4Siaqd26zX0x28931Zx0Nw
-    sk: 7w99tpHhFvPdmDDgcjg0kjS19NN0TkcNinRpF2lnlbH5eFSxS-2o_9XwKyOeCJuPhKJqp3brNfTHbz3fVnHQ3A
-  moniker: vending_machine001
-  operator: &id002
-    address: z1gPpcuUr9J6ek9D1S6MRJzjPbvJMPKHjf9
-    moniker: operator002
-    pk: O3iDU8u5Gw9NJDy9UqUATdR1vuDe0OH2s_4kAPyzpSA
-    sk: p0XvNgfHWG6dxRy0wchmMrGHCIyKodcShMvrrvZa6ZQ7eINTy7kbD00kPL1SpQBN1HW-4N7Q4faz_iQA_LOlIA
-  pk: dMn8vZQueWNSYus9uwDIKKMxpyrASErALRHRR07DSOw
-  sk: f3Z3wq4m2JxxZI9bmjkyYyCmrOcGZbg5nSHY7nc9jLJ0yfy9lC55Y1Ji6z27AMgoozGnKsBISsAtEdFHTsNI7A
-- address: z1jHt56B5oWyUKVAb1hx1CJnvG8ZF8ppfFz
-  location: *id001
-  manufacturer: &id003
-    address: z1Xapt4BKasxEWn1jzBnAaaEwBjxKBHwUXk
-    moniker: manufacturer003
-    pk: 16Emz7wXau1hIV_BAA7KHnGhk2e__e0F233pkkeIbTE
-    sk: GGReZiqhwzIApuXVebLPk-WyswdCHEr6GbpYwXtvkqrXoSbPvBdq7WEhX8EADsoecaGTZ7_97QXbfemSR4htMQ
-  moniker: vending_machine002
-  operator: *id002
-  pk: q5haK7NP26h4MOWEgsvyrrAy5gIObQVAcQ5Q-6_7cd8
-  sk: O96madwhjWVKA-IJXLlLPMnmKRCGyKsIqGVPxqXjpMOrmFors0_bqHgw5YSCy_KusDLmAg5tBUBxDlD7r_tx3w
-- address: z1SNJ5AW9iNyTSakXSCyUM4UrFB1czs81Rn
-  location: &id004
-    address: z1k2z2MwF7nT6kHLKcJZeQDDTnDjAvkKrG5
-    moniker: location003
-    pk: -6J4JSWYwEft6N8iMvO3xubE56kcwlCGaeXuSaxnnw8
-    sk: rqHCw8KJOXzRR9zuRyvuCRUX5tpvNnUWzh9YfxOY3FH7onglJZjAR-3o3yIy87fG5sTnqRzCUIZp5e5JrGefDw
-  manufacturer: &id005
-    address: z1VteCM8YgihRFA5XBawuzZc6it2fdLmA19
-    moniker: manufacturer004
-    pk: BSWRUsP4dmGMw5QJpk1seNMn80aTwpRqzRAfvhPJz48
-    sk: EELqxBE_5M8l5OQP3dgDhB0YkccepXch2WHhl68m4-0FJZFSw_h2YYzDlAmmTWx40yfzRpPClGrNEB--E8nPjw
-  moniker: vending_machine003
-  operator: *id002
-  pk: zAiCHHaw7xoZ8_wR6xGWyqpqrm20m8W2odlwrdGkW5w
-  sk: GPziQgpDJbOaqev9l0uErQMFO8RNQfRhqSOk2h6RJO3MCIIcdrDvGhnz_BHrEZbKqmqubbSbxbah2XCt0aRbnA
-- address: z1URrWiX6Jzmvnvj1GKUc3qHVFjwQ2bYktu
+- address: z1SiUCE5xzM4nQ6bFHJW8Zith7BwQaUqv78
   location:
-    address: z1TvgN8ZCcxXB2uWx49hTySarpYRKoA9zCH
-    moniker: location009
-    pk: JVsnlr7ykglqnKU9QEuIpypFe_QXgMvFdUyAO4qfsjI
-    sk: YG6BFHtzX3Nc3zQ7hij46Iay4aW1Scj9ify42C8kKwMlWyeWvvKSCWqcpT1AS4inKkV79BeAy8V1TIA7ip-yMg
-  manufacturer: *id003
-  moniker: vending_machine004
-  operator: *id002
-  pk: JrnLfAzI8LGQOlYcIY22IDYBTtCvaY4XzY19lG9iSpI
-  sk: MYN6KSjhGmKNDkNpAlmqFDY7ZffdehRt9ftWuWeXQGwmuct8DMjwsZA6VhwhjbYgNgFO0K9pjhfNjX2Ub2JKkg
-- address: z1iNYJmFnKxQogWT8689ku6bfpxUreg143q
-  location:
-    address: z1W8rJiJvdjr4UfL7d5E2WTq2SFedGW8RS7
-    moniker: location019
-    pk: 9-hVB9FHoT0ywLqxuN5f9SV2hXSVoL8EEQNPpU2fJWs
-    sk: Ww6fQhN6osSfOW56OBAS_INHVwMY5hVq0GS6WAIHnm736FUH0UehPTLAurG43l_1JXaFdJWgvwQRA0-lTZ8law
-  manufacturer: &id008
-    address: z1X6xshjDjNWnp6ELdK8i9wnPmpANTarV5T
-    moniker: manufacturer005
-    pk: qgLBhJC702DJe2qkLvqJX0dl0-PEmYVPUdwDZhNtL_8
-    sk: n1qPtivX2SPWKlUQJvQZs9gJWyC1t7dcia7A0Mb_2xaqAsGEkLvTYMl7aqQu-olfR2XT48SZhU9R3ANmE20v_w
-  moniker: vending_machine005
-  operator: &id006
-    address: z1TnjCwLpt4GqmhRJMSPCAHibKTEBV31cXn
-    moniker: operator001
-    pk: aKbUFTWZ1PA9EF3jlChfkEdQuwyqqdSlC5H9gXyUE00
-    sk: ZOAuz9YmIYH76JrbIi0Wohx83Ux8GV8yQbIVtLVcGUZoptQVNZnU8D0QXeOUKF-QR1C7DKqp1KULkf2BfJQTTQ
-  pk: lV1LzQLBjAroqcEEbW2gvTs-NaUC9OFsg1R99mqgPPE
-  sk: BpXaNNpaaSTDNO0950kYDmUOQCNfy4po-kKYAA9409mVXUvNAsGMCuipwQRtbaC9Oz41pQL04WyDVH32aqA88Q
-- address: z1bbyXsyup5rJbk6vd2fjxwRrS558S7aDU7
-  location: *id004
-  manufacturer: *id005
-  moniker: vending_machine006
-  operator: &id009
-    address: z1oYE2SJF54mNsvdQw5TerVkdVJxDZrqDYC
-    moniker: operator003
-    pk: KQ_ZJEGdB5M69CzNxMcNMm2QRmvAZCNDAQOAAEIxNLg
-    sk: v44nfa7zXI0Q5Fmdw7lsDaQdQNK_Bjy_8QPRumjMTQkpD9kkQZ0Hkzr0LM3Exw0ybZBGa8BkI0MBA4AAQjE0uA
-  pk: 5rbX35ZS-VVNDntbTtybIUbFsKwoShi08Yh3PijZw0Y
-  sk: TlHsniEvZ43phOOtCOFUXdYRH4B4pf9H5HiZvpaAu_7mttffllL5VU0Oe1tO3JshRsWwrChKGLTxiHc-KNnDRg
-- address: z1hE3r2cnbp8ympRtoad5NoWdwiGp63PqEW
-  location:
-    address: z1hneqB8G4ysAcuowue5UqBhFpo4ECpJAjB
-    moniker: location002
-    pk: 7gpKj4Ylji2YU-nyhedr9gPau-rONWcMtrU8kzYHV4w
-    sk: W8VtyyIhRi2lNujHh4TMsgrc9nAoQYlhtiD0DNo3s17uCkqPhiWOLZhT6fKF52v2A9q76s41Zwy2tTyTNgdXjA
-  manufacturer: *id005
-  moniker: vending_machine007
-  operator: *id006
-  pk: CSUPQYSYI7Y4lgNNRgsNqstbFLzM_bACsJ78Gx7MZWw
-  sk: ac2-f7mGv5EURInUG884gb7rmRcDAMad1yurlJi9yrcJJQ9BhJgjtjiWA01GCw2qy1sUvMz9sAKwnvwbHsxlbA
-- address: z1W4vyM9fbpXdUqN1hfKgag2YGyV7Wnuksj
-  location: &id015
-    address: z1faUGvSdmTbTMGoebQdcEArauv8tS8Hxcp
-    moniker: location015
-    pk: 6H-wjpyFr4fAtUKfOSs_lEy0eJGiZoK0we78bubbJpc
-    sk: tlOKuw1BhkAWEqJgsielT7N5n0uMRbbup0LKpYfZg5bof7COnIWvh8C1Qp85Kz-UTLR4kaJmgrTB7vxu5tsmlw
-  manufacturer: *id005
-  moniker: vending_machine008
-  operator: *id006
-  pk: CuibXgZr_v26NHaMytz_W_WnnEriP8WVeCH-RQCkF9Q
-  sk: qOYSd_NUB88UWPDMIpyj5BzXIwIV4tHLn7niVa9vj4wK6JteBmv-_bo0dozK3P9b9aecSuI_xZV4If5FAKQX1A
-- address: z1Tmzftopq27m3qqbuiQrAo9JSJXoctrvkk
-  location:
-    address: z1iwgMzDiKGRCQkeZNiPrji7TdzkUEftF6e
-    moniker: location012
-    pk: O7IBjSDtd3s4BZhDzUcPNtWYRrfAtXBDGbtflmFd2bc
-    sk: 3gNGeJqS2UbMF1X1cE_Ad7SF7D1TfmPC8G2v_LIZA3U7sgGNIO13ezgFmEPNRw821ZhGt8C1cEMZu1-WYV3Ztw
-  manufacturer: *id007
-  moniker: vending_machine009
-  operator: *id006
-  pk: 98RA1qg5alLy0xSsY3UZ9Hj9omYHshcKmvX1bkNYH24
-  sk: x5euSjCuPwUyQCouRheoEk09gSW7vVIWnjFRNdDJDYP3xEDWqDlqUvLTFKxjdRn0eP2iZgeyFwqa9fVuQ1gfbg
-- address: z1kHKQ8eBWrToMixbabmWjLSSFHSTzFSnyF
-  location: &id016
-    address: z1RAH6yWAAhmRpDEg8uCTgDzioNKeyNNrc9
-    moniker: location008
-    pk: M9grpMDpfBsgY8RAWpxoAv0o2uLpr3yMdWN5W-7j_K0
-    sk: kTcpCQ_rJ7oq_dWu6xlEISCnhaRXaJTiSv26Fp4VJR0z2CukwOl8GyBjxEBanGgC_Sja4umvfIx1Y3lb7uP8rQ
-  manufacturer: *id008
-  moniker: vending_machine010
-  operator: *id006
-  pk: q_TkqOaQis35L7iQ_T306kHE_gPfoCedghumepmD63U
-  sk: UN12E2MeBBJkvi3Ert6u5guvpXJIeWdbLdb4wvYgmnqr9OSo5pCKzfkvuJD9PfTqQcT-A9-gJ52CG6Z6mYPrdQ
-- address: z1XMQiiQnL7bLBeoakpESsTW5QEVFsGzNw4
-  location: &id011
-    address: z1cEA9bixTQ7GJXRwbgboufw66pvfYPe5XP
-    moniker: location010
-    pk: RAPHn6Djw0462slRkIBYOqwLoczrhgbTprl8nKcgpRM
-    sk: i92QY9Lngc2nGADlM4rh3ZCPytqfqybtNWay2aBS-lFEA8efoOPDTjrayVGQgFg6rAuhzOuGBtOmuXycpyClEw
-  manufacturer: &id010
-    address: z1XfyLELecLrcJXhzJLugoYsEU6VFA9ozCc
-    moniker: manufacturer001
-    pk: ReuW_6wHylC03opFndLJqPTJeXQ9dgZo4WyLrJ7gDd8
-    sk: O4Z3IquXquWq46htJtue3Ekr_qqB7mc3ZoeBXN2OZd5F65b_rAfKULTeikWd0smo9Ml5dD12BmjhbIusnuAN3w
-  moniker: vending_machine011
-  operator: *id009
-  pk: Ct0Y1zC_IwK9DPOxBMq-f5NC0vsjf3F6V2yqcxZMjqs
-  sk: j3oHj--drGOSL8mUrSZO_nduzFHQXukMurV8EowVjUUK3RjXML8jAr0M87EEyr5_k0LS-yN_cXpXbKpzFkyOqw
-- address: z1QPEa8RDfgbF3yeVq1euwbqQnr2yKV6TVJ
-  location: &id012
-    address: z1jLSwhdscYA3qVnjigCDZTnPypJLuuuFjc
-    moniker: location017
-    pk: PUuO7laDFOH8nkYNsHSdFyrW6w5t_7toZ-WT2xBhXD4
-    sk: -6G4rDb4WZe5ITvP9g_ZWYmhd_-Ue_T-1ou7_5Tyyi09S47uVoMU4fyeRg2wdJ0XKtbrDm3_u2hn5ZPbEGFcPg
-  manufacturer: *id010
-  moniker: vending_machine012
-  operator: *id009
-  pk: 4Dr_WrCU17LhCmz2OdViOtB679F4E3lVkGwF3dmZtYI
-  sk: oewfjjzsiEMrXQngsHaF7J2htHoQrekKc8HLs6CsJZLgOv9asJTXsuEKbPY51WI60Hrv0XgTeVWQbAXd2Zm1gg
-- address: z1fLSps89ihbpvTKCapSrPPThBNNHahng3j
-  location: &id013
-    address: z1VPzxg9TTQWGQ2xVDSuzvYiXXzF8r2d6m7
+    address: z1d1ac1DeXg5tif5wR5pXThZq1QyuKvdr4A
+    company: Clarke Group
+    lat: '39.00622'
+    lng: '-77.4286'
     moniker: location006
-    pk: ko3aP0JwhyGoCKyukc_1UEVlAJjf3f29vHBvM4OG_s0
-    sk: umQ_hXze9oeAcopvX7WeJnIDralxxMLX5g1SBfcy0AaSjdo_QnCHIagIrK6Rz_VQRWUAmN_d_b28cG8zg4b-zQ
-  manufacturer: *id007
-  moniker: vending_machine013
-  operator: *id002
-  pk: oKTLh0WGJL-UqvtNfza-7zMMbtVjw4mf71VXmBA0AZw
-  sk: XcZ4dMFHVek_pFrFmg_SNSyH_DKAFg2gpsYIJcSOnvWgpMuHRYYkv5Sq-01_Nr7vMwxu1WPDiZ_vVVeYEDQBnA
-- address: z1c4yagepKeWJKzxMJkQWuc7GKX7NRZTq6b
-  location: *id011
-  manufacturer: *id005
-  moniker: vending_machine014
-  operator: *id009
-  pk: DEHBLq8lAAdfJsHhIzYd9KVeB6HA_KAxSYPI-tQkBeE
-  sk: CXHNKVwbUwzDg7sO6_h1Ujko7SuzvCnownUXjI_olEIMQcEuryUAB18mweEjNh30pV4HocD8oDFJg8j61CQF4Q
-- address: z1Zcfs5w9vTdns42CC8qEjNQy1YD6XJrBZB
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine001
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: 9-gc2TEX8r58BK1EAiQm7qshy9YFQneqThBkQ_1ObA4
+  sk: znehVJ_0ryxCWGUKzxPKNTzw2W2wW0OYNHYaXW6Hg_b36BzZMRfyvnwErUQCJCbuqyHL1gVCd6pOEGRD_U5sDg
+  vm_id: '001'
+- address: z1acgbWeB6MeXJxrieJ7Nupw14cPbAVt4h8
   location:
-    address: z1n4Rx8DsqTi6UKiQQ5SHsgDnSuqs9LR4Ue
+    address: z1UDwypBpttiJKPLZybMw9iAoCYv7nmEbFZ
+    company: Avery Group
+    lat: '43.16547'
+    lng: '-77.70066'
+    moniker: location019
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine002
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: Kij8GGWzhKB9XCU1VzSHeKuI228h4jVfNg0BcqwLs_E
+  sk: XRTgNN31V5-OQ1aTFqkxYDuCtumAByvsmyabAwyk4AQqKPwYZbOEoH1cJTVXNId4q4jbbyHiNV82DQFyrAuz8Q
+  vm_id: '002'
+- address: z1maJxZSkZFfnMkF21PDwrVoCdZx4vPL2J7
+  location:
+    address: z1kWmT8VLZvyqu7vLvzeJSN1GM2fXq9Gkbh
+    company: Dean-Anderson
+    lat: '34.63915'
+    lng: '-120.45794'
+    moniker: location012
+  manufacturer:
+    address: z1fKZ8ef5UY82hpi2whKaUt7rgRzzhw8anB
+    company: Andrews and Sons
+    moniker: manufacturer001
+  moniker: vending_machine003
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: jNFjyNYm1sb5PB89qKWTeJ6VfPNuULK8UxPEUvk6HZk
+  sk: _sPlKTsjCNrRlT3j6y-DKMwivKQMf5HRU21F3QSjaEGM0WPI1ibWxvk8Hz2opZN4npV8825QsrxTE8RS-TodmQ
+  vm_id: '003'
+- address: z1XKgQqbSXUxNbV2fovxLC2FR3UThYWtHEb
+  location:
+    address: z1hQg1RFvPAKBZ6Q5Sg29gnnTWkgKjwtaHK
+    company: Miller Group
+    lat: '39.71734'
+    lng: '-74.96933'
     moniker: location018
-    pk: RTxXQ0-ts7LhQbO3btxn5zJn52cn6xG9QxBaznDtDdk
-    sk: xHboeTCVT0yzcBnJrFysZTBcR8D9jcKlkc4D3ExVyihFPFdDT62zsuFBs7du3GfnMmfnZyfrEb1DEFrOcO0N2Q
-  manufacturer: *id008
-  moniker: vending_machine015
-  operator: *id006
-  pk: DPo2aCEpCfq5bPu4e2VucQcMWSE8ukQx7sZ06srBG04
-  sk: 8ZcNGGotg7cxGF6T7MywBZ19voFpI_lXkdz1U5REaMIM-jZoISkJ-rls-7h7ZW5xBwxZITy6RDHuxnTqysEbTg
-- address: z1UA5UAnK3DYqPNf8JPh3iDGUMFguoksQFo
-  location: *id004
-  manufacturer: *id008
-  moniker: vending_machine016
-  operator: *id002
-  pk: V2Lh6jYKJ0bupqxUpsAi8cfDJZDnqisRzaQNPXTqhQM
-  sk: QiewPwyT7yfXP_1kWDdnRvgPm-Zt7lRmGJ-hBafM455XYuHqNgonRu6mrFSmwCLxx8MlkOeqKxHNpA09dOqFAw
-- address: z1SEPT2dAu1M5n2jN48bD493LUAzyuZTBTx
-  location: *id012
-  manufacturer: *id005
-  moniker: vending_machine017
-  operator: *id006
-  pk: hbjPQYFp4cULzURWj_9nSWNqAc9eq8gStevbbzKa6sE
-  sk: QtceqUvdywx9peHZev_sqc6f-NKKWZx_swoRGHfgcoyFuM9BgWnhxQvNRFaP_2dJY2oBz16ryBK169tvMprqwQ
-- address: z1iqtJpxab7h1VrhvX8sq3pUS9PstwqgFT6
+  manufacturer:
+    address: z1fKZ8ef5UY82hpi2whKaUt7rgRzzhw8anB
+    company: Andrews and Sons
+    moniker: manufacturer001
+  moniker: vending_machine004
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: q0znI2V4ihZpLQlsAalNJR89PJDk12gUuXxMG7ivkNI
+  sk: NhnyJ1cZqFqg2CrcHbs1WfPhcGQcEm7B9XFA0gFs7S2rTOcjZXiKFmktCWwBqU0lHz08kOTXaBS5fEwbuK-Q0g
+  vm_id: '004'
+- address: z1ZVGeauXbuVEharrA475C5mtdssjvg7Ywq
   location:
-    address: z1XSMe6vfzuura43wh5HDnP7VbEdG5WTmxX
-    moniker: location013
-    pk: I3PAhw50qtRV_ZIxFNh1OgQBpjhuRMUAYgNEyZShu0o
-    sk: vuyPiZs4pIhpWUQlDKwMtY6PYICIcicX1M-S3NvfYuojc8CHDnSq1FX9kjEU2HU6BAGmOG5ExQBiA0TJlKG7Sg
-  manufacturer: *id005
-  moniker: vending_machine018
-  operator: *id002
-  pk: OZ8kgRfhISPR7bM8INyfAxirXmvi-VJQz-hFvlsH1oY
-  sk: DQ8KWifA4Wa9D5vZxZvb8wkRf8Ysoj16tZUJTBIFPRU5nySBF-EhI9Htszwg3J8DGKtea-L5UlDP6EW-WwfWhg
-- address: z1UPijPNDHY2YjRJ8ob6A1Kc1LyPNAxWbs5
-  location: &id014
-    address: z1e2skdDe2pBNux3M3qFrgbBrYbm13tt2dS
-    moniker: location014
-    pk: jxqsbOFks-xbDv5zAl97STvn7qkbyaCg41uAiriVFxg
-    sk: mj4z87czFR_obzP4xUFws-1IkAY30Mwk4vX4LfYdyAaPGqxs4WSz7FsO_nMCX3tJO-fuqRvJoKDjW4CKuJUXGA
-  manufacturer: *id003
-  moniker: vending_machine019
-  operator: *id006
-  pk: YXG4rJ3jjcH3Bb9i9RIgg5zAiNOT4vMCHFc_IPZIR-E
-  sk: V0daRsGzGMbIRUUIM9apBXf5rz5WxYpkH6puD2PWNYRhcbisneONwfcFv2L1EiCDnMCI05Pi8wIcVz8g9khH4Q
-- address: z1QoNw6LxKdFH1xmNwVSVhENnzCPdmMAKFC
-  location: *id013
-  manufacturer: *id007
-  moniker: vending_machine020
-  operator: *id006
-  pk: zp4hmQ6K9oJyXfG2-TNgwfm8QS6sgnuvADWqCXs-1I0
-  sk: WSbwkNoi8nRCwNq9zqMRAkUKytjoUJiDiFboVVhAvcnOniGZDor2gnJd8bb5M2DB-bxBLqyCe68ANaoJez7UjQ
-- address: z1iUDae15vkeiyLi2XbBHwvRUNRC5G9KWTe
+    address: z1kWmT8VLZvyqu7vLvzeJSN1GM2fXq9Gkbh
+    company: Dean-Anderson
+    lat: '34.63915'
+    lng: '-120.45794'
+    moniker: location012
+  manufacturer:
+    address: z1VByDXceHTjgnUJgTcUFiCUa3Wu4eawz5a
+    company: Allen Group
+    moniker: manufacturer005
+  moniker: vending_machine005
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: TVaXLyriId1AFIGeS88KYNm6c6xYzqpLOlmD0D1rNME
+  sk: 8_PUiuhEY0R28Xutmc_vcaAxUEpIJx5Cc975lNnTGBhNVpcvKuIh3UAUgZ5Lzwpg2bpzrFjOqks6WYPQPWs0wQ
+  vm_id: '005'
+- address: z1UgFnArpi9kJFXndC28a1kgj3BeXpdVEg8
   location:
-    address: z1cuUHMQ3dBz3fVgw5U8YDn34L8ks1GqXEc
-    moniker: location020
-    pk: 2Ti0JRjnFDwAem6wf-dVVidnlzjPgZW0HApLbCMy77k
-    sk: UcANxnLJ4rDPI4upx3Tn0VB-a0wvoOZFI1jaVn0xKcXZOLQlGOcUPAB6brB_51VWJ2eXOM-BlbQcCktsIzLvuQ
-  manufacturer: *id007
-  moniker: vending_machine021
-  operator: *id009
-  pk: YI6ofuyN8TS4S3bJZjQ2heD1kXCzcd3gVo8X5qMCOFw
-  sk: BlHLcAk9mfGi3rdQ-vNIBv9hEjGaLwsUQ9HJb59VwiNgjqh-7I3xNLhLdslmNDaF4PWRcLNx3eBWjxfmowI4XA
-- address: z1echafEbnpTQgfVNf1retmqpXa2aJegsQh
+    address: z1d1ac1DeXg5tif5wR5pXThZq1QyuKvdr4A
+    company: Clarke Group
+    lat: '39.00622'
+    lng: '-77.4286'
+    moniker: location006
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine006
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: YQ2fAmTTKhfcI4ZeqoFbFJcqt0VfK8XaeHP9MPI13E0
+  sk: PQhFUdzCt9pGba_yT6B2RVs2SH-yqKsNQTwCxRikVqhhDZ8CZNMqF9wjhl6qgVsUlyq3RV8rxdp4c_0w8jXcTQ
+  vm_id: '006'
+- address: z1d9hhZjYmE24cUMkjSZTvkgXrmfFcPvbLY
   location:
-    address: z1Qx7L52BNXMTzCu7pNA2asANCiwx7vYoQd
+    address: z1ViVP4G6aAQ56joVKzcjvWRfTaXqrTuL3H
+    company: Wilson, Durham and Gonzalez
+    lat: '31.12406'
+    lng: '-97.90308'
+    moniker: location010
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine007
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: pjl4rTw--pILaG8zEN3iX5xSRtWuzj0U2OPbsuHCoow
+  sk: O3GFcqt89wgbhP9-6Qp4ZMRptc0EnNgZGo2fUZ1zhUCmOXitPD76kgtobzMQ3eJfnFJG1a7OPRTY49uy4cKijA
+  vm_id: '007'
+- address: z1iyJRJLFpTEAGn7uJsYVrbA7k6QrLpmAHQ
+  location:
+    address: z1bSckfzHFdepSqqvCvBt487SoJiNoWaAXh
+    company: Powell LLC
+    lat: '44.73941'
+    lng: '-93.12577'
+    moniker: location008
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine008
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: BQkLmmSD6cD0VitdwCGQJkwhsIFkMk2DEpK91rmp7L8
+  sk: c8NKmK6rtRpnc8pcDwEZuC5P_QFwipHhf65uNzhSdGgFCQuaZIPpwPRWK13AIZAmTCGwgWQyTYMSkr3Wuansvw
+  vm_id: 008
+- address: z1eN7xNnVcG4XS4HCUoVWeG4z8PMrpdQ4FW
+  location:
+    address: z1ViVP4G6aAQ56joVKzcjvWRfTaXqrTuL3H
+    company: Wilson, Durham and Gonzalez
+    lat: '31.12406'
+    lng: '-97.90308'
+    moniker: location010
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine009
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: 1xVUnzR7B8BqEDcFjMMra0jw-fTGMWyz5oLIOoM18bQ
+  sk: FW9qtl6hCv9wPxHYUTYxU6nON0EXE0dZ8rtrDUmffJDXFVSfNHsHwGoQNwWMwytrSPD59MYxbLPmgsg6gzXxtA
+  vm_id: 009
+- address: z1WvNcpVcYvf7oRN634mmi68khWyo7mXQfW
+  location:
+    address: z1UDwypBpttiJKPLZybMw9iAoCYv7nmEbFZ
+    company: Avery Group
+    lat: '43.16547'
+    lng: '-77.70066'
+    moniker: location019
+  manufacturer:
+    address: z1fKZ8ef5UY82hpi2whKaUt7rgRzzhw8anB
+    company: Andrews and Sons
+    moniker: manufacturer001
+  moniker: vending_machine010
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: 1rxxOErpFhM80n4hHiTzAah_BmlsIGyqvPYIdTGwcZs
+  sk: wPKUGmzEnKYZZDVlMHk78lN9h3mhmoeGCNpovEKkmj_WvHE4SukWEzzSfiEeJPMBqH8GaWwgbKq89gh1MbBxmw
+  vm_id: '010'
+- address: z1RiiK5PjKPrqHSBG58MutEB66F7KpQrKSi
+  location:
+    address: z1iF6ojTtPgYuN5vnsHKw6MPgNiZTWTRqzR
+    company: Carroll-Schroeder
+    lat: '34.21639'
+    lng: '-119.0376'
     moniker: location001
-    pk: wlRGRyawGt6P6_EOH1MzkZM-hpXJys19TCxzvmPpZKQ
-    sk: w2lPSlBLVw1-AO6iXFCaYzSvbJCbTKmuFC5TV49kV0DCVEZHJrAa3o_r8Q4fUzORkz6GlcnKzX1MLHO-Y-lkpA
-  manufacturer: *id010
+  manufacturer:
+    address: z1coM3h1gVwcVCKHJZLdJEQHb8yuaY3Ap79
+    company: Johnston-Garcia
+    moniker: manufacturer002
+  moniker: vending_machine011
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: AGyCnIfrV6t0XEVPNO9culXV2z9wfgl8uWNvfKNshUQ
+  sk: P1AVy0cfMzz2bXPuImkqxlRAHJ7aCJCg61kIr7ZWZyEAbIKch-tXq3RcRU8071y6VdXbP3B-CXy5Y298o2yFRA
+  vm_id: '011'
+- address: z1ctDE4bdy4LBwQmegtqtFrxNQgRp9ftfqv
+  location:
+    address: z1bSckfzHFdepSqqvCvBt487SoJiNoWaAXh
+    company: Powell LLC
+    lat: '44.73941'
+    lng: '-93.12577'
+    moniker: location008
+  manufacturer:
+    address: z1coM3h1gVwcVCKHJZLdJEQHb8yuaY3Ap79
+    company: Johnston-Garcia
+    moniker: manufacturer002
+  moniker: vending_machine012
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: -nqVUgkYjR_bTAehmZXAbw8G8y8rzPEOpNF_PnvWp9s
+  sk: 5jcznOxVa1ynXRKYjZ2mlXcK1V3n_MWU5vSjvU-7hqX6epVSCRiNH9tMB6GZlcBvDwbzLyvM8Q6k0X8-e9an2w
+  vm_id: '012'
+- address: z1Sb5jZJhjGRL4aMASuhkULSLwhM4tWrDuv
+  location:
+    address: z1kWmT8VLZvyqu7vLvzeJSN1GM2fXq9Gkbh
+    company: Dean-Anderson
+    lat: '34.63915'
+    lng: '-120.45794'
+    moniker: location012
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine013
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: Ho-EKqwtgiKTiAGgfUjCERLPVgTKZu9RcwVm1WYtivM
+  sk: A5oteDGMjxQ0qKgiq5vtrr2BlsldMPc0qcuDfPuxMXUej4QqrC2CIpOIAaB9SMIREs9WBMpm71FzBWbVZi2K8w
+  vm_id: '013'
+- address: z1bJF2SgiRNkyVKZEp1RW4SVcjAxFVRcv1q
+  location:
+    address: z1UDwypBpttiJKPLZybMw9iAoCYv7nmEbFZ
+    company: Avery Group
+    lat: '43.16547'
+    lng: '-77.70066'
+    moniker: location019
+  manufacturer:
+    address: z1VByDXceHTjgnUJgTcUFiCUa3Wu4eawz5a
+    company: Allen Group
+    moniker: manufacturer005
+  moniker: vending_machine014
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: Bay9ZiJOYF8Cr5BFASjueu-OwxIH-G7nkKatJFMHty0
+  sk: X2kNmdCyix-hNiAwqc9EUo1r8Xw0hTetfPU_cGK196gFrL1mIk5gXwKvkEUBKO56747DEgf4bueQpq0kUwe3LQ
+  vm_id: '014'
+- address: z1QbXLdmzC3pQzcrW5Kr913wZ6nyeDHEwg3
+  location:
+    address: z1htg3bp2BKTNRWizU7Akc5U3Qu5iwJqkqd
+    company: Everett Ltd
+    lat: '29.65163'
+    lng: '-82.32483'
+    moniker: location015
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine015
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: QNjjov7u-HcQFhTu01pj0XWQ5uaa3os3nDIyxkigOOk
+  sk: f9H6jqDUpuMegUTcLo1VTq5yZx7MtKdqP9sGHbQ27h5A2OOi_u74dxAWFO7TWmPRdZDm5preizecMjLGSKA46Q
+  vm_id: '015'
+- address: z1av7v52qspJeZKVWx3R1HLbGaYXxCwvhjK
+  location:
+    address: z1T5sgKP4pmH9fn1dCCNcV19ss5s9RMqDTd
+    company: Le-Brown
+    lat: '39.32011'
+    lng: '-76.51552'
+    moniker: location013
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine016
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: BdTK7mMPK4hsfITKEeWDSdA3_s4AiFgc_fsC5sEnfOA
+  sk: 59GNrWTvpX7SkegSn00NqXDbIvZ0_8b3EL4U2PxKds0F1MruYw8riGx8hMoR5YNJ0Df-zgCIWBz9-wLmwSd84A
+  vm_id: '016'
+- address: z1jjGkToXam9NwNqRAAewECz24Z1oGBHSgS
+  location:
+    address: z1hQg1RFvPAKBZ6Q5Sg29gnnTWkgKjwtaHK
+    company: Miller Group
+    lat: '39.71734'
+    lng: '-74.96933'
+    moniker: location018
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine017
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: CVROZpMIx6WMt0xF26dJJRlre8G_GWtzxM25nXvWgbY
+  sk: 6f0JYipj8i3288SqNsrkJEVGTrVrLdMvCVPR2Lgfbn4JVE5mkwjHpYy3TEXbp0klGWt7wb8Za3PEzbmde9aBtg
+  vm_id: '017'
+- address: z1WkL2jMLNxtX1vb4oRM9nfaS5bSNEHQEbQ
+  location:
+    address: z1ab34k8EPLQRYHYVxfQx4gf7or7KCYbC9S
+    company: Barajas-Franklin
+    lat: '42.7392'
+    lng: '-84.62081'
+    moniker: location002
+  manufacturer:
+    address: z1fKZ8ef5UY82hpi2whKaUt7rgRzzhw8anB
+    company: Andrews and Sons
+    moniker: manufacturer001
+  moniker: vending_machine018
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: wTk_ydQvan8KhO0DPpLQJ2xvHyGCdHKYik6oDWs5FXM
+  sk: akiCe8XD7AuhMgtPmwwEfyOn6IRKdrt5g01ldgNDFn_BOT_J1C9qfwqE7QM-ktAnbG8fIYJ0cpiKTqgNazkVcw
+  vm_id: 018
+- address: z1kzJAYY9YJiSmsFcxqhUBFReWMtJAbapLk
+  location:
+    address: z1UDwypBpttiJKPLZybMw9iAoCYv7nmEbFZ
+    company: Avery Group
+    lat: '43.16547'
+    lng: '-77.70066'
+    moniker: location019
+  manufacturer:
+    address: z1jbuXXU1J3DsSHSUcT9hAzxmc7tPGqU5LT
+    company: Gill, Smith and Huber
+    moniker: manufacturer004
+  moniker: vending_machine019
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: L0O2_Y-RnkcSwHVPXlrDXEjeN8DKLaisk6noE02j7yI
+  sk: WFQHwLr1r8XEc39F68BQCABGGZMeeY29xQnFVq-usdYvQ7b9j5GeRxLAdU9eWsNcSN43wMotqKyTqegTTaPvIg
+  vm_id: 019
+- address: z1V8NpY3euffXsru1Bi1XxWpGgeeJzevQ74
+  location:
+    address: z1hQg1RFvPAKBZ6Q5Sg29gnnTWkgKjwtaHK
+    company: Miller Group
+    lat: '39.71734'
+    lng: '-74.96933'
+    moniker: location018
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine020
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: Ia0ljxp-vnYMm26APYfr6zfb5cisl81ldSUvxSK6Gbw
+  sk: SXkbzis21UWBw7EICN2oH3vlA738CRa6F9pk1wycs9IhrSWPGn6-dgybboA9h-vrN9vlyKyXzWV1JS_FIroZvA
+  vm_id: '020'
+- address: z1dcTNZsEejypkvrUGjEAB6vNcLqko2UNB4
+  location:
+    address: z1UDwypBpttiJKPLZybMw9iAoCYv7nmEbFZ
+    company: Avery Group
+    lat: '43.16547'
+    lng: '-77.70066'
+    moniker: location019
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
+  moniker: vending_machine021
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: bCkKHkMkg_ppToSqRr_0kD8mLuAFnFUV_rDVHHp_BkM
+  sk: p1OOLQ5iA1gbAUPBghwC9XQv25xnodzeIAI8kMOniHpsKQoeQySD-mlOhKpGv_SQPyYu4AWcVRX-sNUcen8GQw
+  vm_id: '021'
+- address: z1cS5UVvzbv3189ibWsWXZgx1qgr52y2mv6
+  location:
+    address: z1RjNGkLqx1FJAXiXgZ2tvaRFv63EsS6Y2a
+    company: Meadows, Kennedy and Ayers
+    lat: '33.92946'
+    lng: '-116.97725'
+    moniker: location004
+  manufacturer:
+    address: z1coM3h1gVwcVCKHJZLdJEQHb8yuaY3Ap79
+    company: Johnston-Garcia
+    moniker: manufacturer002
   moniker: vending_machine022
-  operator: *id009
-  pk: lb8emNM8xf0yI_SoFLyF22Tv03YQwwBiVwt7WQVlFqw
-  sk: TAgEHdRKERr6c9FDbIEP-1HM53FX_8JKaRTmU1G9w6KVvx6Y0zzF_TIj9KgUvIXbZO_TdhDDAGJXC3tZBWUWrA
-- address: z1jtbbR4XFeCJ3bRBvez6CiNCo119ELouyp
-  location: *id014
-  manufacturer: *id005
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: g-3kEklLf86aIdk70OeIET9viQ0rwzGDHClP-DPFTVw
+  sk: 1DEOIi4pLcdw2teZnAp4xEwxBOnad5YTE7D13Vynpw6D7eQSSUt_zpoh2TvQ54gRP2-JDSvDMYMcKU_4M8VNXA
+  vm_id: '022'
+- address: z1ZJpEUmNDBddxdQL7LeFEvdAW75Q2HwkZT
+  location:
+    address: z1WCoTVdM1fdjd5vUyVewKS4VDwbcwpngqi
+    company: Meyer and Sons
+    lat: '44.27804'
+    lng: '-88.27205'
+    moniker: location014
+  manufacturer:
+    address: z1fKZ8ef5UY82hpi2whKaUt7rgRzzhw8anB
+    company: Andrews and Sons
+    moniker: manufacturer001
   moniker: vending_machine023
-  operator: *id009
-  pk: fazkZtvRDQ5AH9-2pFUNi92AGmoO0u2KdzLqcvS3-KU
-  sk: EJRAs2CJ_2YLBbKKTcn666LZrA4tprQXIxec7llNFGR9rORm29ENDkAf37akVQ2L3YAaag7S7Yp3Mupy9Lf4pQ
-- address: z1cTwPV15gND91CsCVoeJLwSErfQxWfUX1d
-  location: *id015
-  manufacturer: *id003
+  operator:
+    address: z1fTfiDk6jXxEgWweqHqJYUTE8pd87VCtur
+    company: Herring-Prince
+    moniker: operator003
+  pk: eyDnGcjN_Q1nk1och7jmeyFJ-fR-bUTOb31pN9FcNps
+  sk: PJHPW5_bxOOGP7QgW16t4hCjyItGXHxLI3Yp3OkVXvd7IOcZyM39DWeTWhyHuOZ7IUn59H5tRM5vfWk30Vw2mw
+  vm_id: '023'
+- address: z1eMYhTF52Z6eps3zYwcz2sSkmVuYWBcoaD
+  location:
+    address: z1UfDw7yevc1j3Mybm1n9B43hkkSZSPevpu
+    company: Perez-Bullock
+    lat: '41.27621'
+    lng: '-72.86843'
+    moniker: location011
+  manufacturer:
+    address: z1VByDXceHTjgnUJgTcUFiCUa3Wu4eawz5a
+    company: Allen Group
+    moniker: manufacturer005
   moniker: vending_machine024
-  operator: *id009
-  pk: ivYB00mXl9edTHrA0_kJ9aLbXMsKzFSjYSUusFCpXeE
-  sk: HK1On0gJCeMDRnbtU6xOZYjO0psI6iB-gt0FQX4-sluK9gHTSZeX151MesDT-Qn1ottcywrMVKNhJS6wUKld4Q
-- address: z1oYRPhJDkXcM8j4DWthC1NErUYsT1Dyk3j
-  location: *id016
-  manufacturer: *id008
+  operator:
+    address: z1VK775itzJoTMdLzDRzA9toZwNfmqmHy6x
+    company: Smith-Hancock
+    moniker: operator001
+  pk: Hx-tRmKJABHbvTOjl8W0tnNulwlQSXeVN5NzrmxauBs
+  sk: XG1HjplQUU32gpe601KS8mzsi5xEt3nGE54zeIZeTTsfH61GYokAEdu9M6OXxbS2c26XCVBJd5U3k3OubFq4Gw
+  vm_id: '024'
+- address: z1SyuZBdQtEhi3mUUXUgrCSGWHuwW66fgvf
+  location:
+    address: z1htg3bp2BKTNRWizU7Akc5U3Qu5iwJqkqd
+    company: Everett Ltd
+    lat: '29.65163'
+    lng: '-82.32483'
+    moniker: location015
+  manufacturer:
+    address: z1V4GAqN3mt8kawqhLXuFxTgjZodhqRAkxH
+    company: Fritz Group
+    moniker: manufacturer003
   moniker: vending_machine025
-  operator: *id002
-  pk: 8JVt-ip40W0i6FqaxwY6UODeiFc3X2PKBWt6y_55KGU
-  sk: rX_oa418voGjeImMgYvos1-K-ZranP_BgDSVFB6Jm8jwlW36KnjRbSLoWprHBjpQ4N6IVzdfY8oFa3rL_nkoZQ
+  operator:
+    address: z1SeBbx56dvPAuUGhqeJv9qsnvxN2kc3ZvZ
+    company: Jones-Malone
+    moniker: operator002
+  pk: HatXjaq32xg43jFkmW0jTYUnhdwoxnsKvdjUl6kuWMQ
+  sk: remiGMrYfaqt_gRNCQrNtSfYEnf26fIPEgCVd8ZGsOcdq1eNqrfbGDjeMWSZbSNNhSeF3CjGewq92NSXqS5YxA
+  vm_id: '025'

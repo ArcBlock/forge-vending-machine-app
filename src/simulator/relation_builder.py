@@ -3,7 +3,7 @@ sys.path.append('./src')
 import yaml
 
 from random import choice
-from utils import wallets
+# from utils import wallets
 from utils.conf import fixture_path
 from utils.load_yaml import load_yaml
 
@@ -13,10 +13,14 @@ def build_vending_machine(vms: list, ops: list, mas: list, los: list):
     '''
     res = []
     for vm in vms:
+        op=choice(ops)
+        ma=choice(mas)
+        lo=choice(los)
+
         vm.update(dict(
-            operator=choice(ops),
-            manufacturer=choice(mas),
-            location=choice(los)
+            operator = dict(moniker=op['moniker'], address=op['address'], company=op['company']),
+            manufacturer = dict(moniker=ma['moniker'], address=ma['address'], company=ma['company']),
+            location=dict(moniker=lo['moniker'], address=lo['address'], company=lo['company'], lat=lo['lat'], lng=lo['lng']),
         ))
         res.append(vm)
     
@@ -32,9 +36,10 @@ def build_sku(skus: list, sus: list):
     assign a supplier to each sku
     '''
     res = []
+    su=choice(sus)
     for sku in skus:
         sku.update(dict(
-            supplier=choice(sus)
+            supplier=dict(moniker=su['moniker'], address=su['address'], company=su['address']),
         ))
         res.append(sku)
     

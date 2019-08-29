@@ -1,31 +1,46 @@
 ---
-- sku: sku001
+- barcode: '5280268738777'
+  sku: Milk Duds
+  value: 2
+- barcode: 0099355799707
+  sku: Oreos
+  value: 4
+- barcode: '2559716892259'
+  sku: Gatorade
+  value: 4
+- barcode: '5647162666474'
+  sku: Diet Pepsi
+  value: 2
+- barcode: '4431200184720'
+  sku: Granola Bars
+  value: 2
+- barcode: '8523403726893'
+  sku: Milk Duds
   value: 5
-- sku: sku002
-  value: 4
-- sku: sku003
-  value: 1
-- sku: sku004
+- barcode: '1107333357296'
+  sku: Pepsi
   value: 2
-- sku: sku005
+- barcode: '9946193035188'
+  sku: Cheetos
   value: 1
-- sku: sku006
-  value: 3
-- sku: sku007
-  value: 3
-- sku: sku008
-  value: 3
-- sku: sku009
+- barcode: '4477664209999'
+  sku: "Grandma\u2019s Cookies"
   value: 4
-- sku: sku010
-  value: 1
-- sku: sku011
-  value: 4
-- sku: sku012
-  value: 1
-- sku: sku013
+- barcode: '9511582965263'
+  sku: Dr. Pepper
+  value: 3
+- barcode: '3970441591696'
+  sku: Dr. Pepper
   value: 2
-- sku: sku014
-  value: 3
-- sku: sku015
-  value: 3
+- barcode: 0337281687393
+  sku: Twix
+  value: 2
+- barcode: '1777830742996'
+  sku: Baby Ruth
+  value: 1
+- barcode: '5291188422325'
+  sku: Gatorade
+  value: 4
+- barcode: '9654167096058'
+  sku: Twix
+  value: 4
