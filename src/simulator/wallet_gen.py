@@ -46,8 +46,7 @@ def wallet_generator(name: str, num: int):
     Output:
         create `fixtures/{}.yml`
     '''
-
-    
+  
     fake = Faker()
     data = []
 
@@ -59,11 +58,14 @@ def wallet_generator(name: str, num: int):
 
         wallet_info = create_wallet_dict(moniker, passphrase)
        
+       # add lat, lng for locations (for building scattergeo map)
         if name == 'location':
             (lat, lng, _, _, _,) = fake.local_latlng(country_code="US")
             wallet_info.update(dict(lat = str(lat), lng = str(lng)))
+        # add a fake company for each party (for webapp display)
         if name in party:
             wallet_info.update(dict(company=fake.company()))
+        # add an id number of each vending machine, e.g. 010 (for webapp display)
         elif name == 'vending_machine':
             wallet_info.update(dict(vm_id=str(i + 1).zfill(3)))
             
@@ -71,7 +73,3 @@ def wallet_generator(name: str, num: int):
 
     with open('{}/{}.yml'.format(fixture_path, name), 'w') as outfile:
         yaml.dump(data, outfile, explicit_start=True)
-
-# w = create_wallet_dict("nana", "abcd1234")
-# print(w)
-# wallet_generator("vending_machine", 4)

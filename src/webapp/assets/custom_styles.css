@@ -10,6 +10,7 @@ body {
     margin: 3%;
 }
 
+
 .app-content {
     /* background-color: #ffffff; */
     padding:20px;
@@ -69,9 +70,6 @@ body {
     margin-top: 15px;
 }
 
-/* .link {
-    text-align: right;
-} */
 
 .pretty_container {
     background-color: #f9f9f9;

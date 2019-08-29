@@ -17,7 +17,7 @@ from dash.dependencies import Input, Output, State
 from datetime import date
 from datetime import datetime as dt
 
-from helpers import get_parties_states, get_db, get_distinct_value, query_rows, get_value_prop
+from helpers import get_parties_states, get_distinct_value, query_rows, get_value_prop
 from helpers import heatmap_helper, moniker_name_converter, get_wallet_address, get_column, get_value_prop_with_conditions
 from helpers import PARTY_TYPES, PARTY_LIST
 from utils.conf import share
@@ -33,10 +33,6 @@ app = dash.Dash(__name__)
 
 # allow dynamic callbacks
 app.config['suppress_callback_exceptions'] = True
-
-# add external css
-# css_url = 'https://codepen.io/chriddyp/pen/bWLwgP.css'
-# app.css.append_css({"external_url": [css_url]})
 
 df_account_states = pd.DataFrame(get_parties_states(PARTY_LIST))
 logger.debug(f"\n {df_account_states}")
@@ -105,7 +101,6 @@ def vm_map():
         yaxis=dict(title='Operators', title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
         plot_bgcolor=('white'),
         paper_bgcolor="#f9f9f9",
-        # margin=dict(l=20, r=20, t=20, b=30),
     )
                                         
     return dcc.Graph(
@@ -130,7 +125,6 @@ def geo_scatter():
                 color=colors[i],
                 opacity=0.8,
                 size=18,
-                # sizemode = 'area'
             ),
             name = moniker_name_converter(op),
             hoverinfo='text+name'
@@ -230,16 +224,13 @@ def create_tab1():
         ]
     )
 
-
 def date_picker():
     return dcc.DatePickerRange(
-                id='date-picker-range',
-                min_date_allowed=dt(2019, 8, 1),
-                # max_date_allowed=dt(2017, 9, 19),
-                initial_visible_month=dt(2019, 8, 1),
-                # start_date=dt(2019, 8, 1),
-                end_date=dt.now(),
-            )
+            id='date-picker-range',
+            min_date_allowed=dt(2019, 8, 1),
+            initial_visible_month=dt(2019, 8, 1),
+            end_date=dt.now(),
+        )
 
 
 def create_tab2():
@@ -276,7 +267,7 @@ def create_tab2():
                                 multi=False,
                                 value='',
                             ),
-                            html.P("Select date range:", className="label"),
+                            html.P("Select date:", className="label"),
                             date_picker()
                         ]
                     )                               
@@ -353,6 +344,7 @@ def render_content(tab):
 '''
 Tab1 Callback
 '''
+
 # Piechart -> update
 @app.callback(Output('piechart', 'figure'), [Input('interval-component', 'n_intervals')])
 def update_piechart(n):
@@ -371,7 +363,6 @@ def update_piechart(n):
                                 'rgb(151, 179, 100)',
                                 'rgb(175, 49, 35)',
                                 'rgb(36, 73, 147)'], 
-                    #  "line": {"color": "white", "width":3}
                 },
                 "textinfo": "label",
             }],
@@ -408,7 +399,6 @@ def update_map(n):
         yaxis=dict(title='Operators', title_font=dict(color='rgb(33, 75, 99)', size=18), zeroline=False),
         plot_bgcolor=('white'),
         paper_bgcolor="#f9f9f9",
-        # margin=dict(l=20, r=20, t=20, b=30),
     )
 
     return fig
@@ -486,9 +476,11 @@ def display_table(data, n):
     ]
 
     return children
+
 '''
 Tab2 Callback
 '''
+
 # Radio -> dropdown options
 @app.callback(Output("party-options", "options"), [Input("party-selector", "value")])
 def display_type(selector):
@@ -520,10 +512,11 @@ def update_output(value, start, end, n):
     ptype = difflib.get_close_matches(value, ['operator', 'manufacturer', 'location', 'supplier'])[0]
     addr_value = get_wallet_address(ptype, value)
     column = get_column(ptype)
+    
     # get related txs by searching addresses
     df_txs = query_rows(column, addr_value).sort_values(by=['time'], ascending=False)
 
-    # filter txs by time
+    # filter txs by date
     if start is None:
         df_txs = df_txs[df_txs['time'] <= end]
     else:

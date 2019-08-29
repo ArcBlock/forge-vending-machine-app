@@ -27,7 +27,7 @@ def sku_generator(num: int):
 
     for i in range(num):
         # e.g. name = 'sku001'
-        name = "sku" + str(i + 1).zfill(3)
+        # name = "sku" + str(i + 1).zfill(3)
         # e.g. value = a random number
         value = randrange(1, 6)  # generate random int from 1 to 5
 

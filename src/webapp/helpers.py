@@ -72,11 +72,6 @@ PARTY_TYPES = party_types(PARTY_LIST)
 '''
 The following functions are grabbing the data from the db
 '''
-
-def get_db():
-    conn = sql_connection(sqlite_file)
-    return pd.read_sql_query('SELECT * FROM transactions', conn)
-
 def query_rows(column, value):
     '''
     Query all rows in the table by a certain column,
@@ -92,15 +87,16 @@ def query_rows(column, value):
     conn = sql_connection(sqlite_file)
     return pd.read_sql_query('SELECT * FROM transactions WHERE {} = (?)'.format(column), conn, params=(value,))
 
-# res = query_rows('operator', 'operator002')
-# print(res.shape)
-# for i in res:
-#     print(i)
-
 
 def get_distinct_value(column: str): 
     '''
-    return [('operator001',), ('operator002',), ('operator003',)]
+    Return distinct values of a column
+    ------
+    Args:
+        column(str): column's header
+        
+    Output:
+        (list): e.g. [('operator001',), ('operator002',), ('operator003',)]
     '''
     conn = sql_connection(sqlite_file)
     c = conn.cursor()
@@ -113,7 +109,7 @@ def get_value_prop(column: str):
     Return the number of values of a certain column
     ------
     Args:
-        column(str): column
+        column(str): column's header
 
     Output:
         res(dict): e.g. {'operator001': 47, 'operator002': 26, 'operator003': 26}
@@ -130,10 +126,12 @@ def get_value_prop(column: str):
 
 def get_value_prop_with_conditions(column: str, con_column:str, con_value):
     '''
-    Return the number of values of a certain column
+    Return the number of values of a certain column with conditions
     ------
     Args:
-        column(str): column
+        column(str): column's header
+        con_column(str): conditional column's header
+        con_value(any type): conditional column's value
 
     Output:
         res(dict): e.g. {'operator001': 47, 'operator002': 26, 'operator003': 26}
@@ -155,11 +153,30 @@ def get_value_prop_with_conditions(column: str, con_column:str, con_value):
 Other helper functions
 '''
 def moniker_name_converter(moniker: str): 
+    '''
+    Find the company name of a party by its moniker
+    ------ 
+    Args:
+        moniker(str): party's wallet moniker
+
+    Output:
+        (str): party's company name 
+    '''
     for elem in PARTY_TYPES:
         if elem == moniker: return PARTY_TYPES[elem]
             
 
 def get_wallet_address(ptype: str, moniker: str):
+    '''
+    Get wallet's address by its moniker in an off-chain way
+    ------ 
+    Args:
+        ptype(str): party's type (operator, manufacturer, supplier, or location)
+        moniker(str): party's moniker 
+
+    Output:
+        (str): party's address
+    '''
     if ptype == 'operator':
         for elem in operators:
             if elem['moniker'] == moniker: return elem['address']
@@ -173,22 +190,36 @@ def get_wallet_address(ptype: str, moniker: str):
         for elem in locations:
             if elem['moniker'] == moniker: return elem['address']
 
+
 # DataTable
 def get_column(ptype: str):
+    '''
+    Return the related address column based on party type,
+    work for DataTable in Tab2 
+    ------ 
+    Args: 
+        ptype(str): party's type (operator, manufacturer, supplier, or location)
+    Output: 
+        (str): related address column's header
+    '''
     if ptype == 'operator': return 'op_addr'
     elif ptype == 'manufacturer': return 'ma_addr'
     elif ptype == 'supplier': return 'su_addr'
     elif ptype == 'location': return 'lo_addr'
 
-# print(get_column('location'))
 
+# Heatmap
 def heatmap_helper():
     '''
-    return matrix, e.g. [[1, 2, 3, 4,], [2, 3, 4, 5]]
+    Return parameters for building the heatmap
+    ------ 
+    Args:
+        None 
 
-    x-axis: 'operator's vending machines'
-    y-axis: 'each operator'
-    z-axis: 'number of tx'
+    Output:
+        whole_op_list(list): a list of distinct operators' monikers
+        whole_vm_list(list/matrix): a matrix of vm_ids of all vending machines in an order for heatmap visualization 
+        whole_tx_list(list/matrix): a matrix of transaction amounts of all vending machines in an order for heatmap visualization 
     '''
 
     conn = sql_connection(sqlite_file)
@@ -214,5 +245,3 @@ def heatmap_helper():
         whole_tx_list.append(tx_list)
 
     return whole_op_list, whole_vm_list, whole_tx_list
-
-# print(heatmap_helper())

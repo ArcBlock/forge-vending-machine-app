@@ -14,10 +14,10 @@ locations = load_yaml("location")
 item_units = load_yaml("sku_models")
 vm_units = load_yaml("vending_machine_models")
 
+# for the convenience of the webapp to retrieve data
 SKU_DICT = {}
 for sku in items:
     SKU_DICT.update({"{}".format(sku['sku']): sku['barcode']})
-
 
 VM_DICT = {}
 for vm in vending_machines:
