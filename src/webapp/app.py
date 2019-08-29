@@ -20,6 +20,7 @@ from datetime import datetime as dt
 from helpers import get_parties_states, get_db, get_distinct_value, query_rows, get_value_prop
 from helpers import heatmap_helper, moniker_name_converter, get_wallet_address, get_column, get_value_prop_with_conditions
 from helpers import PARTY_TYPES, PARTY_LIST
+from utils.conf import share
 
 
 
@@ -135,7 +136,6 @@ def geo_scatter():
             hoverinfo='text+name'
         ))
     fig.update_layout(
-        # title_text = '(Click legend to toggle traces)',
         autosize=True,
         geo = dict(
             scope = 'usa',
@@ -289,7 +289,7 @@ def create_tab2():
                         id="main-content",
                         className="pretty_container",
                         children=[
-                            html.Div(id='selector_output')
+                            html.Div(id='selector_output'),
                         ]
                     )   
                 ]
@@ -382,7 +382,6 @@ def update_piechart(n):
                 "showlegend":True,
             },
         }
-
 
 
 # Heatmap -> update
@@ -508,7 +507,7 @@ def display_type(selector):
 def update_output(value, start, end, n):
     logger.debug(f"option's value is {value}")
     if value == "" or value == None:
-        return 'Please choose the ledger you want to check'
+        return 'Please choose the ledger you want to view'
 
     logger.info("updating df...")
 
@@ -532,7 +531,7 @@ def update_output(value, start, end, n):
         end = end + " 23:59:59"
         df_txs = df_txs[(df_txs['time'] >= start) & (df_txs['time'] <= end)]
 
-    # DataTable
+    df_txs.price = df_txs.price.astype(float)/(10**16)
     shown_columns = ['item', 'price', 'time', 'vm_id', 'hash']
     table = dash_table.DataTable(                
                 columns=[{'id': c, 'name': c} for c in shown_columns], 
@@ -549,9 +548,20 @@ def update_output(value, start, end, n):
                 
             )  
 
+    ratio = share[ptype]
+
+    total_balance = float(output['balance'].values[0].item()/(10**16))
+    total_share = '%.2f' % (total_balance * ratio)
+    total_balance = '%.2f' % total_balance
+
     selected_balance = df_txs['price'].sum()
+    selected_share = '%.2f' % (selected_balance * ratio)
+    selected_balance = '%.2f' % selected_balance
+
+    ratio = str(int(ratio * 100))
     selected_num = df_txs.shape[0]
-    
+
+
     layout = html.Div(
                 children=[
                     html.Div(
@@ -560,23 +570,31 @@ def update_output(value, start, end, n):
                             html.Div(
                                 className='col', 
                                 children=[
-                                    html.H4(party_name),
-                                    html.P(f"Address: {output['address'].values[0]}"),
+                                    html.H4(party_name, style={'color':'rgb(79, 129, 102)', 'fontWeight':'bold', 'marginBottom':'12px'}),
+                                    html.P(f"Address: {output['address'].values[0]}", style={'marginBottom':'5px'}),
+                                    html.P(f"Ratio: {ratio}"),
                                 ],
                             ),
                             html.Div(
                                 className='col',
                                 children=[
-                                    html.H4(output['balance'].values[0], style={'textAlign': 'right'}),
-                                    html.H5("Total Balance", style={'textAlign': 'right'})
+                                    html.H4(f"{total_share}/{total_balance}", style={'textAlign': 'right'}),
+                                    html.H5("Total Profits/Turnover", style={'textAlign': 'right'}),
+                                    html.P(f"Total number of bills: {output['num_txs'].values[0]}", style={'textAlign': 'right'}),
                                 ]
                             ),
                         ]
                     ),
-                    html.P(f"Total number of bills: {output['num_txs'].values[0]}"),
+                    html.Div(
+                        style={'textAlign': 'right'},
+                        children=[
+                            html.A("check hash on the chain", href='http://localhost:8211/node/explorer/txs', target="_blank",
+                                style = {'backgroundColor': 'rgb(79, 129, 102)', 'borderRadius': '10px', 'color':'white', 'fontWeight': 'bold', 'padding':'10px'})
+                        ]        
+                    ),
                     html.Br(),
                     table,
-                    html.P(f"number: {selected_num} ; balance: {selected_balance}", style={'textAlign': 'right'}),
+                    html.P(f"number: {selected_num} ; turnover: {selected_balance}", style={'textAlign': 'right'}),
                 ]
             )
             

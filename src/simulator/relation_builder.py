@@ -36,8 +36,8 @@ def build_sku(skus: list, sus: list):
     assign a supplier to each sku
     '''
     res = []
-    su=choice(sus)
     for sku in skus:
+        su=choice(sus)
         sku.update(dict(
             supplier=dict(moniker=su['moniker'], address=su['address'], company=su['address']),
         ))
@@ -46,4 +46,6 @@ def build_sku(skus: list, sus: list):
     with open('{}/sku_models.yml'.format(fixture_path), 'w') as outfile:
         yaml.dump(res, outfile, explicit_start=True)
 
-# build_sku(wallets.items, wallets.locations)
+# items = load_yaml("sku")
+# suppliers = load_yaml("supplier")
+# build_sku(items, suppliers)

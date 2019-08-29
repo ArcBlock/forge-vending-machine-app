@@ -69,6 +69,10 @@ body {
     margin-top: 15px;
 }
 
+/* .link {
+    text-align: right;
+} */
+
 .pretty_container {
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -77,7 +81,7 @@ body {
     position: relative;
 }
   
-.pretty_container h4, h5, h6{
+.pretty_container h4, h5{
     color: #222222;
     font-family: "Gill Sans", sans-serif;
     line-height: 1;

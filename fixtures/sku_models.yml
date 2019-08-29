@@ -2,37 +2,37 @@
 - barcode: '5280268738777'
   sku: Milk Duds
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    company: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    moniker: supplier008
   value: 2
 - barcode: 0099355799707
   sku: Oreos
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1XyAFcH44RGL3pttJgs7k7wWEFVeKaH8EP
+    company: z1XyAFcH44RGL3pttJgs7k7wWEFVeKaH8EP
+    moniker: supplier010
   value: 4
 - barcode: '2559716892259'
   sku: Gatorade
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1U3v865VCSR6FgG7cYftDYwVnuPEgrfKVQ
+    company: z1U3v865VCSR6FgG7cYftDYwVnuPEgrfKVQ
+    moniker: supplier006
   value: 4
 - barcode: '5647162666474'
   sku: Diet Pepsi
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    company: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    moniker: supplier008
   value: 2
 - barcode: '4431200184720'
   sku: Granola Bars
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1SmXeGcXmaDPh1bP7VFX5pisVNwyKfXkeP
+    company: z1SmXeGcXmaDPh1bP7VFX5pisVNwyKfXkeP
+    moniker: supplier001
   value: 2
 - barcode: '8523403726893'
   sku: Milk Duds
@@ -44,30 +44,30 @@
 - barcode: '1107333357296'
   sku: Pepsi
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1kdew6G1T4yiZrdN4oz5Lfs5wvQUWqt98z
+    company: z1kdew6G1T4yiZrdN4oz5Lfs5wvQUWqt98z
+    moniker: supplier004
   value: 2
 - barcode: '9946193035188'
   sku: Cheetos
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1SmXeGcXmaDPh1bP7VFX5pisVNwyKfXkeP
+    company: z1SmXeGcXmaDPh1bP7VFX5pisVNwyKfXkeP
+    moniker: supplier001
   value: 1
 - barcode: '4477664209999'
   sku: "Grandma\u2019s Cookies"
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1XyAFcH44RGL3pttJgs7k7wWEFVeKaH8EP
+    company: z1XyAFcH44RGL3pttJgs7k7wWEFVeKaH8EP
+    moniker: supplier010
   value: 4
 - barcode: '9511582965263'
   sku: Dr. Pepper
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1aZZ2gjex9VdJnLx2gGGAs51AtMNW2tbdq
+    company: z1aZZ2gjex9VdJnLx2gGGAs51AtMNW2tbdq
+    moniker: supplier002
   value: 3
 - barcode: '3970441591696'
   sku: Dr. Pepper
@@ -79,23 +79,23 @@
 - barcode: 0337281687393
   sku: Twix
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1oUcN3qasxQLnUpwB3Fj5VcVELic7pkwRf
+    company: z1oUcN3qasxQLnUpwB3Fj5VcVELic7pkwRf
+    moniker: supplier007
   value: 2
 - barcode: '1777830742996'
   sku: Baby Ruth
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1kdew6G1T4yiZrdN4oz5Lfs5wvQUWqt98z
+    company: z1kdew6G1T4yiZrdN4oz5Lfs5wvQUWqt98z
+    moniker: supplier004
   value: 1
 - barcode: '5291188422325'
   sku: Gatorade
   supplier:
-    address: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    company: z1YL6ZkzbuSbKPkGUSua3WSg7NF3Qri3Vys
-    moniker: supplier009
+    address: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    company: z1X8qQf8oGL15Gk2GdXKe4Kn2BkL11ufqar
+    moniker: supplier008
   value: 4
 - barcode: '9654167096058'
   sku: Twix
