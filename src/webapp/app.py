@@ -512,7 +512,7 @@ def update_output(value, start, end, n):
     ptype = difflib.get_close_matches(value, ['operator', 'manufacturer', 'location', 'supplier'])[0]
     addr_value = get_wallet_address(ptype, value)
     column = get_column(ptype)
-    
+
     # get related txs by searching addresses
     df_txs = query_rows(column, addr_value).sort_values(by=['time'], ascending=False)
 

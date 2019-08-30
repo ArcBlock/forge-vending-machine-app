@@ -141,9 +141,9 @@ def get_value_prop_with_conditions(column: str, con_column:str, con_value):
     c.execute("SELECT DISTINCT {} FROM transactions WHERE {} = ? ORDER BY {}".format(column, con_column, column), (con_value,))
     unique_values = c.fetchall()
     res = {}
-    for value in unique_values:
-        c.execute("SELECT COUNT(*) FROM transactions WHERE {} = ?".format(column), value)
-        res.update({'{}'.format(value[0]): c.fetchone()[0]})
+    for (value,) in unique_values:
+        c.execute("SELECT COUNT(*) FROM transactions WHERE {} = ? AND {} = ?".format(column, con_column), (value, con_value))
+        res.update({'{}'.format(value): c.fetchone()[0]})
     return res
 
 # print(get_value_prop_with_conditions('item', 'vm_id', '017'))
