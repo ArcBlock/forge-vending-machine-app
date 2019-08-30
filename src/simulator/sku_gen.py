@@ -1,10 +1,14 @@
 import os
+import random
 import sys
+sys.path.append('./src')
 from random import randrange
 
 import yaml
-from utils.conf import fixture_path
-sys.path.append('./src')
+from faker import Faker
+
+from utils.conf import fixture_path, item_names
+
 
 
 def sku_generator(num: int):
@@ -18,17 +22,19 @@ def sku_generator(num: int):
         create `fixtures/sku.yml`
     '''
 
+    fake = Faker()
     data = []
 
     for i in range(num):
         # e.g. name = 'sku001'
-        name = "sku" + str(i + 1).zfill(3)
+        # name = "sku" + str(i + 1).zfill(3)
         # e.g. value = a random number
         value = randrange(1, 6)  # generate random int from 1 to 5
 
         sku_data = dict(
-            sku=name,
+            sku=random.choice(item_names),
             value=value,
+            barcode=str(fake.ean13()),
         )
 
         data.append(sku_data)
