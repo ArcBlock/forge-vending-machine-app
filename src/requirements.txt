@@ -4,4 +4,4 @@ Faker==2.0.1
 forge-python-sdk==0.35.0
 pandas==0.25.0
 PyYAML==5.1.2
-requests==2.18.4
+requests==2.20.0
